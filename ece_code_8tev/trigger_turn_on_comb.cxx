@@ -76,46 +76,47 @@ vector<Float_t> trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1
 	shatR_h_eff_tr_c20_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c20_no","Eff shatr , gaminvr", 60,0,3000);
 
 
-	xe_pt_h_eff_tr->SetStatisticOption(1);
-	shatR_h_eff_tr     ->SetStatisticOption(1);
-	shatR_h_eff_tr_c1  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c2  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c3  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c4  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c5  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c6  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c7  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c8  ->SetStatisticOption(1);
-	gaminvR_h_eff_tr   ->SetStatisticOption(1);
-	raz_var_h_eff_tr   ->SetStatisticOption(1);
-	shatR_h_eff_tr_no     ->SetStatisticOption(1);
-	shatR_h_eff_tr_c1_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c2_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c3_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c4_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c5_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c6_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c7_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c8_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c9_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c10_no  ->SetStatisticOption(1);
+       	xe_pt_h_eff_tr->SetStatisticOption(1);
+       	shatR_h_eff_tr     ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c1  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c2  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c3  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c4  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c5  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c6  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c7  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c8  ->SetStatisticOption(1);
+       	gaminvR_h_eff_tr   ->SetStatisticOption(1);
+       	raz_var_h_eff_tr   ->SetStatisticOption(1);
+       	shatR_h_eff_tr_no     ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c1_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c2_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c3_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c4_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c5_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c6_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c7_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c8_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c9_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c10_no  ->SetStatisticOption(1);
 
 
-	shatR_h_eff_tr_c11_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c12_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c13_no  ->SetStatisticOption(1);
-	shatR_h_eff_tr_c14_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c15_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c16_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c17_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c18_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c19_no  ->SetStatisticOption(1);
-        shatR_h_eff_tr_c20_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c11_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c12_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c13_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c14_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c15_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c16_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c17_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c18_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c19_no  ->SetStatisticOption(1);
+      	shatR_h_eff_tr_c20_no  ->SetStatisticOption(1);
 
 
 
-	gaminvR_h_eff_tr_no ->SetStatisticOption(1);
-	raz_var_h_eff_tr_no ->SetStatisticOption(1);
+       	gaminvR_h_eff_tr_no ->SetStatisticOption(1);
+      	raz_var_h_eff_tr_no ->SetStatisticOption(1);
+
 
 	xe_pt_h_eff_tr->SetUseWeightedEvents();
         shatR_h_eff_tr->SetUseWeightedEvents();
@@ -160,6 +161,8 @@ vector<Float_t> trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1
         shatR_h_eff_tr_c18_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c19_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c20_no->SetUseWeightedEvents();
+
+
 
 
 
@@ -1328,6 +1331,26 @@ vector<Float_t> trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1
         endl;
 
 
+
+	for(int a = 0; a< 40 ; a++){
+
+		if (xe_pt_h_eff_tr->GetEfficiency(a) == 1){
+
+			cout << a << endl;
+			cout << xe_pt_h_eff_tr->GetEfficiencyErrorUp(a) << endl;
+			cout << xe_pt_h_eff_tr->GetEfficiencyErrorLow(a) << endl;
+
+		}
+
+
+	}
+
+
+
+
+
+
+
         TFile* efficiency_turnon_output= new TFile (output_directory+"/"+output_file_name+c_prodr+"eff_turnon.root" ,"recreate");
 
 	xe_pt_h_eff_tr->Write();
@@ -1348,13 +1371,13 @@ vector<Float_t> trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1
 	graph_1->Write();
 
 
-        c3->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_xe_pt_eff.pdf");
+//        c3->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_xe_pt_eff.pdf");
         c3->Close();
-        c4->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatr_eff.pdf");
+//        c4->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatr_eff.pdf");
         c4->Close();
-        c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_gaminvr_eff.pdf");
+//        c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_gaminvr_eff.pdf");
         c5->Close();
-        c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_eff.pdf");
+//        c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_eff.pdf");
         c6->Close();
 
 

@@ -193,7 +193,7 @@ void razor_trigger_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 		   	currenttree = mytree_1->CloneTree();
 			if(currenttree!=0)cout << "Cloned first tree" << endl;
 
-			weight = weight_1;
+			weight = weight_1/number_of_events_1;
 			number_of_events_cur = number_of_events_1;
 
 		}
@@ -205,7 +205,7 @@ void razor_trigger_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 			currenttree = mytree_2->CloneTree();
 			if(currenttree!=0) cout << "Cloned second tree" << endl;
 
-			weight = weight_2;
+			weight = weight_2/number_of_events_2;
 			number_of_events_cur = number_of_events_2;
 
 		}
@@ -561,19 +561,19 @@ void razor_trigger_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
         f2->SetContourLevel(0,prodr);
         f2->Draw("same");
 
-	TF2 *f2_2 = new TF2("f2_2",prodr_funct,0,3000,0,1,2);
+/*	TF2 *f2_2 = new TF2("f2_2",prodr_funct,0,3000,0,1,2);
         f2_2->SetParameters(200,0);
         f2_2->SetLineColor(kRed);
         f2_2->SetLineWidth(4);
         f2_2->SetContour(1);
         f2_2->SetContourLevel(0,170);
         f2_2->Draw("same");
+*/
 
-
-        leg = new TLegend(0.66,0.80,0.82,0.9);
+        leg = new TLegend(0.64,0.80,0.80,0.9);
         leg->SetTextSize(0.03);
         leg->AddEntry(f2,"#bar{#Pi}="+c_prodr+"GeV","l");
-        leg->AddEntry(f2_2,"#bar{#Pi}=170GeV","l");
+//      leg->AddEntry(f2_2,"#bar{#Pi}=170GeV","l");
         leg->Draw();
 
 
@@ -649,17 +649,17 @@ void razor_trigger_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	overlap_h->Write();
 
 
-	c3->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatR.pdf");
+//	c3->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatR.pdf");
 	c3->Close();
-	c4->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_gaminvR.pdf");
+//	c4->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_gaminvR.pdf");
 	c4->Close();
 	c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_razor_variables.pdf");
 	c5->Close();
-	c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_XE_pt_1.pdf");
+//	c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_XE_pt_1.pdf");
 	c6->Close();
-	c7->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_JET_pt.pdf");
+//	c7->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_JET_pt.pdf");
 	c7->Close();
-	c8->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_xe_pt.pdf");
+//	c8->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_xe_pt.pdf");
 	c8->Close();
 	c10->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_trigger_overlap.pdf");
 	c10->Close();
