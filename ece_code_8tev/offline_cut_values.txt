@@ -1,0 +1,9 @@
+prodr = 115.323
+c1 = -251.634
+c2=  -0.0754473
+
+
+        Float_t off_prodr = 115;
+        Float_t off_c1 = -252;
+        Float_t off_c2 = -0.08;
+

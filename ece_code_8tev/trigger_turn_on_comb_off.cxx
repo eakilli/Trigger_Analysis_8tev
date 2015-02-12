@@ -443,12 +443,12 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
         Float_t eff_or_3_off =n_o_e_prodr_2J15_XE55_or_prodr_XE70_off/number_of_events;
         Float_t eff_or_4_off =n_o_e_xe100_XE70_or_prodr_or3_off/number_of_events;
 
-/*
+
 	efficiencies.push_back(eff_xe) ;
 	efficiencies.push_back(eff_or_1);
 	efficiencies.push_back(eff_or_2);
 	efficiencies.push_back(eff_or_3);
-	efficiencies.push_back(eff_or_4);*/
+	efficiencies.push_back(eff_or_4);
        //Plateau
         efficiencies.push_back(eff_xe_off) ;
         efficiencies.push_back(eff_or_1_off);

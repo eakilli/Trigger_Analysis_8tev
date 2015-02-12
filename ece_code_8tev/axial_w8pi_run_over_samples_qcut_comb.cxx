@@ -12,6 +12,11 @@ parseDir("/atlas/data2/userdata/eakilli/razor_output/New_grid_axial");
 
 void parseDir(TString dirname){
 
+        Float_t off_prodr = 115;
+        Float_t off_c1 = -252;
+        Float_t off_c2 = -0.08;
+        TString off_prodr_string = "115";
+
 	cout << "Operating in " << dirname << endl;
 
 	TString file_directory = dirname;
@@ -20,10 +25,7 @@ void parseDir(TString dirname){
 	TSystemDirectory dir(dirname, dirname);
 	TList *files = dir.GetListOfFiles();
 
-//	vector<Float_t> efficiency_200(0);
-	vector<Float_t> efficiency_170(0);
 	vector<Float_t> efficiency_all(0);
-
 	vector<Float_t> efficiency_170_off(0);
 
 	Float_t cross_sect1 = 0;
@@ -60,8 +62,8 @@ void parseDir(TString dirname){
 
 
 			if ( (input_file_name.EndsWith("dma_dm50_mm50_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
-				cross_sect1 = 8.4859E-04;
-				cross_sect2 = 4.1717E-02;
+				cross_sect1 = 4.1717E-02;
+				cross_sect2 = 8.4859E-04;
 				flag_comb++;
 			}
 			if ( (input_file_name.EndsWith("dma_dm50_mm100_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
@@ -135,20 +137,11 @@ void parseDir(TString dirname){
                                 output_file_name_efficiency = temp_input_file_name_efficiency.Remove(0,12);
 
 
-//				efficiency_200.resize(0);
-				efficiency_170.resize(0); efficiency_all.resize(0);
+				efficiency_all.resize(0);
 				efficiency_170_off.resize(0);
+				trigger_turn_on_comb("170",170,200,0.0,off_prodr_string ,off_prodr,off_c1, off_c2, file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
+                                efficiency_170_off = trigger_turn_on_comb_off("170",170,200,0.0, off_prodr,off_c1, off_c2, file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
 
-//				efficiency_200 = trigger_turn_on_comb("200",200,85,0.048,  file_directory , input_file_name_1, input_file_name_2, output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
-				efficiency_170 = trigger_turn_on_comb("170",170,200,0.0,  file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
-//				efficiency_170_off = trigger_turn_on_comb_off("170",170,200,0.0, efficiency_170[5],efficiency_170[6],efficiency_170[7],file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
-
-
-				for(Int_t k = 0; k< efficiency_170.size(); k++){
-
-					efficiency_all.push_back(efficiency_170[k]);
-
-				}
 
 
 				for(Int_t k = 0 ; k < efficiency_170_off.size() ; k++) {
