@@ -47,7 +47,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	vector<Float_t> efficiencies(0);
 	Float_t value = 0;
 
-	ofstream outputfile(output_directory+"/"+output_file_name+c_prodr+"_efficiency_off_outputfile.txt");
+	ofstream outputfile(output_directory+"/"+output_file_name+c_prodr+"_efficiency_off_outputfile_OR1.txt");
 	outputfile<< " *** output messages file for : " << file_directory << "/" << input_file_name_1 << "," << input_file_name_2  << " *** \n"<<
 	"\n prodr : " << prodr <<
 	"\n c_1 : " << c_1 <<
@@ -73,7 +73,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
 	int flag_prodr_t[n_t]={0};
         int flag_prodr_t_off[n_t]={0};
-
+	int flag_off_raz_xe100_XE70_off = 0;
 
 	// Razor and L1
 
@@ -97,6 +97,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	Float_t n_o_e_xe100_XE70 = 0;
       	Float_t n_o_e_xe100_XE70_off = 0;
 
+	//2 jets more than 30 GeV
+	Float_t n_o_e_xe100_XE70_2j = 0;
+	Float_t n_o_e_xe100_XE70_off_2j = 0;
 
 	// OR combination of the triggers
 
@@ -109,6 +112,24 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	Float_t n_o_e_xe100_XE70_or_prodr_XE70_off=0;
        	Float_t n_o_e_prodr_2J15_XE55_or_prodr_XE70_off = 0;
      	Float_t n_o_e_xe100_XE70_or_prodr_or3_off = 0;
+	Float_t n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 = 0;
+
+
+	//Combine
+        Float_t n_o_eff_combined = 0;
+
+
+	//2 jets more than 30 GeV
+	Float_t n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = 0;
+	Float_t n_o_e_xe100_XE70_or_prodr_XE70_2j = 0;
+	Float_t n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = 0;
+	Float_t n_o_e_xe100_XE70_or_prodr_or3_2j = 0;
+	Float_t n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j = 0;
+	Float_t n_o_e_xe100_XE70_or_prodr_XE70_off_2j = 0;
+	Float_t n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = 0;
+	Float_t n_o_e_xe100_XE70_or_prodr_or3_off_2j = 0;
+	Float_t n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = 0;
+	Float_t n_o_eff_combined_2j = 0;
 
 
 	int flag_OR_1 = 0;
@@ -274,6 +295,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
                      	flag_xe_off = 0;
                      	flag_prod_off = 0;
+			flag_off_raz_xe100_XE70_off = 0;
 
 			currenttree->GetEntry(i); // the object event has been filled at this point
 
@@ -339,6 +361,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 				flag_prodr_t[1]=1; //actually it is not a flag_prodr_t, only met
 				n_o_e_xe100_XE70 = n_o_e_xe100_XE70 + weight;
                              	if (flag_xe_off == 1 ) { flag_prodr_t_off[1]=1; n_o_e_xe100_XE70_off = n_o_e_xe100_XE70_off  + weight; }
+				if (flag_prod_off ==1 ) { flag_off_raz_xe100_XE70_off = 1; }
+				if (shatR>0 && gaminvR>0){ n_o_e_xe100_XE70_2j = n_o_e_xe100_XE70_2j + weight;  }
+				if(flag_xe_off == 1 && shatR>0 && gaminvR >0){n_o_e_xe100_XE70_off_2j = n_o_e_xe100_XE70_off_2j +weight;}
 
 			}
 
@@ -350,22 +375,48 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if(flag_prodr_t[0]==1 || flag_prodr_t[1]==1){
 				flag_OR_1 = 1;
 				n_o_e_xe100_XE70_or_prodr_2J15_XE55  = n_o_e_xe100_XE70_or_prodr_2J15_XE55 + weight;
+				if(shatR>0 && gaminvR>0) { n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j + weight;  }
 			}
 
 
-                        if(flag_prodr_t_off[0] == 1 || flag_prodr_t_off[1]==1) {
 
+			// New offline but, treat OR of ProdR_2J15_XE55, xe100_XE70 as a single trigger and apply the offline cut on the 2D razor variables plane
+			if( flag_prodr_t_off[0]  || flag_off_raz_xe100_XE70_off ) {
                                 flag_OR_1_off = 1;
                                 n_o_e_xe100_XE70_or_prodr_2J15_XE55_off = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off  + weight;
+				n_o_eff_combined = n_o_eff_combined + weight;
+
+                		if(shatR>0 && gaminvR>0) {
+					n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j + weight;
+					n_o_eff_combined_2j = n_o_eff_combined_2j + weight;
+				}
+
+		       }
 
 
+
+			if( gaminvR<0 && shatR<0 && flag_prodr_t_off[1]==1 ){
+
+				n_o_eff_combined = n_o_eff_combined + weight;
+
+			}
+
+
+
+			// Offline separetly
+   	                 if(flag_prodr_t_off[0] == 1 || flag_prodr_t_off[1]==1) {
+                                flag_OR_1_off = 1;
+                                n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55  + weight;
+				if(shatR>0 && gaminvR>0) {n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j + weight;}
                         }
+
 
 
 			//t3 OR t2
 			if(flag_prodr_t[2]==1 || flag_prodr_t[1]==1){
 				flag_OR_2 = 1;
 				n_o_e_xe100_XE70_or_prodr_XE70 = n_o_e_xe100_XE70_or_prodr_XE70 + weight;
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_2j = n_o_e_xe100_XE70_or_prodr_XE70_2j +weight;}
 			}
 
 
@@ -373,7 +424,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
                         if(flag_prodr_t_off[2]== 1 || flag_prodr_t_off[1]==1){
                                 flag_OR_2_off = 1;
                                 n_o_e_xe100_XE70_or_prodr_XE70_off = n_o_e_xe100_XE70_or_prodr_XE70_off  + weight;
-
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_off_2j = n_o_e_xe100_XE70_or_prodr_XE70_off_2j+weight;}
                         }
 
 
@@ -383,13 +434,15 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if( flag_prodr_t[0]==1 || flag_prodr_t[2]==1){
 				flag_OR_3 = 1;
 				n_o_e_prodr_2J15_XE55_or_prodr_XE70 = n_o_e_prodr_2J15_XE55_or_prodr_XE70 + weight;
+				if(shatR>0 && gaminvR>0) {n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j + weight;}
 			}
 
 
                         if(flag_prodr_t_off[0] == 1 || flag_prodr_t_off[2] == 1){
                                 flag_OR_3_off =1;
                                 n_o_e_prodr_2J15_XE55_or_prodr_XE70_off  = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off + weight;
-                        }
+                 		if(shatR>0 && gaminvR>0){n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j + weight;}
+		     }
 
 
 
@@ -397,6 +450,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if( flag_OR_3 ==1 || flag_prodr_t[1]==1){
 				flag_OR_4 = 1;
 				n_o_e_xe100_XE70_or_prodr_or3 = n_o_e_xe100_XE70_or_prodr_or3 + weight;
+				if(shatR>0 && gaminvR >0) {n_o_e_xe100_XE70_or_prodr_or3_2j = n_o_e_xe100_XE70_or_prodr_or3_2j +weight;}
 			}
 
 
@@ -404,7 +458,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
                         if(flag_OR_3_off == 1 || flag_prodr_t_off[1]==1){
 
                                 n_o_e_xe100_XE70_or_prodr_or3_off = n_o_e_xe100_XE70_or_prodr_or3_off  + weight;
-
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_or3_off_2j = n_o_e_xe100_XE70_or_prodr_or3_off_2j + weight;}
                         }
 
 
@@ -436,12 +490,34 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	Float_t eff_or_4 =n_o_e_xe100_XE70_or_prodr_or3/number_of_events;
 
 
+
         // Eff plateau
         Float_t eff_xe_off = n_o_e_xe100_XE70_off/number_of_events;
         Float_t eff_or_1_off = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off/number_of_events ;
         Float_t eff_or_2_off =  n_o_e_xe100_XE70_or_prodr_XE70_off/number_of_events;
-        Float_t eff_or_3_off =n_o_e_prodr_2J15_XE55_or_prodr_XE70_off/number_of_events;
+        Float_t eff_or_3_off = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off/number_of_events;
         Float_t eff_or_4_off =n_o_e_xe100_XE70_or_prodr_or3_off/number_of_events;
+        Float_t eff_or_5_off = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55/number_of_events ;
+	Float_t eff_or_6_off = n_o_eff_combined/number_of_events;
+
+	// 2 Jets
+
+	Float_t eff_xe_2j = n_o_e_xe100_XE70_2j /n_razor;
+	Float_t eff_or_1_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j /n_razor;
+	Float_t eff_or_2_2j = n_o_e_xe100_XE70_or_prodr_XE70_2j /n_razor;
+	Float_t eff_or_3_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j/n_razor;
+	Float_t eff_or_4_2j = n_o_e_xe100_XE70_or_prodr_or3_2j/n_razor;
+
+
+	Float_t eff_xe_off_2j = n_o_e_xe100_XE70_off_2j  /n_razor;
+	Float_t eff_or_1_off_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j /n_razor;
+	Float_t eff_or_2_off_2j = n_o_e_xe100_XE70_or_prodr_XE70_off_2j /n_razor;
+	Float_t eff_or_3_off_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j /n_razor;
+	Float_t eff_or_4_off_2j = n_o_e_xe100_XE70_or_prodr_or3_off_2j /n_razor;
+	Float_t eff_or_5_off_2j = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j /n_razor;
+	Float_t eff_or_6_off_2j = n_o_eff_combined_2j/number_of_events;
+
+
 
 
 	efficiencies.push_back(eff_xe) ;
@@ -455,6 +531,26 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
         efficiencies.push_back(eff_or_2_off);
         efficiencies.push_back(eff_or_3_off);
         efficiencies.push_back(eff_or_4_off);
+	efficiencies.push_back(eff_or_5_off);
+	efficiencies.push_back(eff_or_6_off);
+
+	//2Jets
+	efficiencies.push_back(eff_xe_2j);
+	efficiencies.push_back(eff_or_1_2j);
+	efficiencies.push_back(eff_or_2_2j);
+	efficiencies.push_back(eff_or_3_2j);
+	efficiencies.push_back(eff_or_4_2j);
+	efficiencies.push_back(eff_xe_off_2j);
+	efficiencies.push_back(eff_or_1_off_2j);
+	efficiencies.push_back(eff_or_2_off_2j);
+	efficiencies.push_back(eff_or_3_off_2j);
+	efficiencies.push_back(eff_or_4_off_2j);
+	efficiencies.push_back(eff_or_5_off_2j);
+	efficiencies.push_back(eff_or_6_off_2j);
+
+
+
+
 
 
 	setstyle();

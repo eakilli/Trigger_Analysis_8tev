@@ -1,0 +1,310 @@
+
+Processing vector_w3_run_over_samples_qcut_comb.cxx...
+Operating in /atlas/data2/userdata/eakilli/razor_output/New_grid
+Found files.
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm30000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm30000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm30000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.492258
+0.538328
+0.499861
+0.293119
+0.540141
+0.198159
+0.258577
+0.258822
+0.179977
+0.265124
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm100_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm100_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm100_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.491931
+0.535746
+0.497074
+0.304289
+0.53715
+0.223948
+0.282261
+0.282913
+0.193831
+0.289335
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm600_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm600_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm600_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.522996
+0.566691
+0.528774
+0.310313
+0.568497
+0.227623
+0.287361
+0.288766
+0.198154
+0.295092
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm6000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm6000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm6000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.493046
+0.540107
+0.500175
+0.296885
+0.541818
+0.196661
+0.257644
+0.259704
+0.182324
+0.265697
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm300_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm300_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm300_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.420524
+0.468209
+0.429578
+0.246646
+0.470721
+0.116397
+0.172759
+0.174618
+0.126234
+0.180046
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm3000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm3000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm3000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.549914
+0.587418
+0.554309
+0.306591
+0.588625
+0.250158
+0.308992
+0.312154
+0.202646
+0.318097
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm10000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm10000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm10000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.491978
+0.537902
+0.499099
+0.291224
+0.539766
+0.197444
+0.253747
+0.255762
+0.176213
+0.261152
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm100_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm100_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm100_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.317162
+0.374931
+0.329663
+0.202536
+0.378245
+0.0519093
+0.0961916
+0.096489
+0.0772357
+0.101915
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm10000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm10000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm10000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.554656
+0.592544
+0.560627
+0.322399
+0.594154
+0.252785
+0.311248
+0.315071
+0.21202
+0.319799
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm1000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm1000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm1000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.532028
+0.571458
+0.537618
+0.298353
+0.573266
+0.234002
+0.290646
+0.292408
+0.191946
+0.298236
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm50_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm50_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm50_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.337171
+0.394687
+0.34888
+0.216656
+0.397649
+0.0682263
+0.117145
+0.118299
+0.0947634
+0.123473
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm600_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm600_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm600_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.471479
+0.515095
+0.47959
+0.275741
+0.517307
+0.171461
+0.228129
+0.232768
+0.161223
+0.236605
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm1000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm1000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm1000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.509617
+0.55266
+0.516903
+0.29386
+0.554513
+0.209801
+0.265288
+0.267692
+0.178824
+0.273306
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm50_mm3000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm50_mm3000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm50_mm3000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.507647
+0.552823
+0.515065
+0.288219
+0.554326
+0.202001
+0.260791
+0.263191
+0.173797
+0.269253
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm300_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm300_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm300_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.525536
+0.568843
+0.531937
+0.315168
+0.570451
+0.23451
+0.294721
+0.297239
+0.205803
+0.30327
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm50_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm50_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm50_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.486886
+0.5299
+0.491477
+0.301699
+0.530904
+0.216592
+0.270821
+0.273035
+0.187342
+0.278508
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm30000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm30000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm30000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.546545
+0.590564
+0.552341
+0.317493
+0.592175
+0.248534
+0.308475
+0.311954
+0.208659
+0.317592
+Attempting to tamper with file triggerInfo_8tev_trigger_dmv_dm400_mm6000_w3_qcut80_razor.root
+Attempting to tamper with files triggerInfo_8tev_trigger_dmv_dm400_mm6000_w3_qcut80_razor.root,triggerInfo_8tev_trigger_dmv_dm400_mm6000_w3_qcut300_razor.root
+Cloned first tree
+end event loop : 0
+Cloned second tree
+end event loop : 1
+ Offline efficiencies : Done! :) 
+0.549849
+0.590127
+0.554656
+0.316506
+0.591585
+0.252707
+0.307952
+0.310366
+0.208156
+0.316402

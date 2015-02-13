@@ -11,10 +11,12 @@
 
 
 using namespace std;
-vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2){
+vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2){
 
 
-	TString dirname = "/atlas/data2/userdata/eakilli/razor_output/New_grid_axial";
+	TString dirname_1 = "/atlas/data2/userdata/eakilli/razor_output/New_grid";
+	TString dirname_2 = "/atlas/data2/userdata/eakilli/razor_output/New_grid_axial";
+
 //	Int_t ece_counter = 0;
 
 	xe_pt_h_eff_tr = (TEfficiency*) new TEfficiency("xe_pt_h_eff_tr","Eff xe_pt",40, 50, 250);
@@ -267,7 +269,7 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 	int flag_OR_2 = 0;
 	int flag_OR_3 = 0;
        	int flag_OR_4 = 0;
-	int eff_off_criteria;
+
 
 //	int flag_OR_1_off = 0;
 //	int flag_OR_2_off = 0;
@@ -331,18 +333,14 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 
 
 
-//	parseDir("/atlas/data2/userdata/eakilli/razor_output/New_grid_axial");
+//	parseDir("/atlas/data2/userdata/eakilli/razor_output/New_grid*");
 
 //begin parsedir
 
 
-	cout << "Operating in " << dirname << endl;
-
-	TString file_directory = dirname;
-	TString output_directory = "/atlas/data2/userdata/eakilli/razor_output/New_grid_axial/Output_w8pi" ;
-
-	TSystemDirectory dir(dirname, dirname);
-	TList *files = dir.GetListOfFiles();
+	TString dirname;
+	TString output_directory = "/atlas/data2/userdata/eakilli/razor_output/Output_efficiency_directory" ;
+	ofstream outputfile(output_directory+"/"+c_prodr+"_efficiency_outputfile.txt");
 
 	vector<Float_t> efficiency_170(0);
 
@@ -353,19 +351,33 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 
 	int ece = 0;
 
+	TString output_file_name_efficiency;
+	TString input_file_name;
+	TString output_file_name;
 
-	ofstream outputfile(output_directory+"/"+c_prodr+"_efficiency_outputfile_OR1.txt");
+
+
+for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
+
+
+
+	if(mul_dir==0) dirname = dirname_1;
+	if(mul_dir==1) dirname = dirname_2;
+
+	cout << "Operating in " << dirname << endl;
+
+	TString file_directory = dirname;
+
+	TSystemDirectory dir(dirname, dirname);
+	TList *files = dir.GetListOfFiles();
+
+
 	outputfile<< " *** output messages file for : " << file_directory <<  " *** \n"<<
 	"\n prodr : " << prodr <<
 	"\n c_1 : " << c_1 <<
 	"\n c_2 : " << c_2 <<
 	endl;
 
-
-
-	TString output_file_name_efficiency;
-	TString input_file_name;
-	TString output_file_name;
 
 
 
@@ -388,6 +400,242 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 			flag_comb = 0;
 			cross_sect1 = 0;
 			cross_sect2 = 0;
+
+
+				if ( (input_file_name.EndsWith("dmv_dm50_mm50_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 9.7111E-02;
+					cross_sect2 = 1.5375E-03;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm100_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 2.9907E-01;
+					cross_sect2 = 3.8267E-03;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm300_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 7.1889E-02;
+					cross_sect2 = 2.2939E-03;
+					flag_comb++;
+				}
+
+				if ( (input_file_name.EndsWith("dmv_dm50_mm600_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 9.4679E-03;
+					cross_sect2 = 5.5195E-04;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm1000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 1.4869E-03;
+					cross_sect2 = 1.1363E-04;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm3000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 8.7935E-06;
+					cross_sect2 = 6.9580E-07;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm6000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 4.3139E-07;
+					cross_sect2 = 3.0427E-08;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm10000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 5.3874E-08;
+					cross_sect2 = 3.7327E-09;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm50_mm30000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 6.5714E-10;
+					cross_sect2 = 4.5056E-11;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm50_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 1.2034E-04;
+					cross_sect2 = 1.0759E-05;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm100_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 1.2350E-04;
+					cross_sect2 = 1.0920E-05;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm300_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 1.4860E-04;
+					cross_sect2 = 1.2936E-05;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm600_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 3.0935E-04;
+					cross_sect2 = 2.6166E-05;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm1000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 7.0620E-04;
+					cross_sect2 = 6.3103E-05;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm3000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 4.4852E-06;
+					cross_sect2 = 4.6517E-07;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm6000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 1.7366E-07;
+					cross_sect2 = 1.6857E-08;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm10000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 2.0742E-08;
+					cross_sect2 = 2.0086E-09;
+					flag_comb++;
+				}
+				if ( (input_file_name.EndsWith("dmv_dm400_mm30000_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+					cross_sect1 = 2.4684E-10;
+					cross_sect2 = 2.3864E-11;
+					flag_comb++;
+				}
+
+
+
+
+
+			if ( (input_file_name.EndsWith("dmv_dm50_mm50_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 9.6144E-02;
+				cross_sect2 = 1.5224E-03;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm100_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.2398E+00;
+				cross_sect2 = 1.2518E-02;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm300_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 7.1245E-01;
+				cross_sect2 = 2.2210E-02;
+				flag_comb++;
+			}
+
+			if ( (input_file_name.EndsWith("dmv_dm50_mm600_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 8.8637E-02;
+				cross_sect2 = 5.5275E-03;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm1000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.2609E-02;
+				cross_sect2 = 1.0859E-03;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm3000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.8145E-05;
+				cross_sect2 = 1.7378E-06;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm6000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 4.7073E-07;
+				cross_sect2 = 3.3860E-08;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm10000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 5.8283E-08;
+				cross_sect2 = 4.1306E-09;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm50_mm30000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 7.0477E-10;
+				cross_sect2 = 4.9768E-11;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm50_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.2042E-04;
+				cross_sect2 = 1.0754E-05;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm100_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.2201E-04;
+				cross_sect2 = 1.0929E-05;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm300_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.4537E-04;
+				cross_sect2 = 1.2850E-05;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm600_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 3.1843E-04;
+				cross_sect2 = 2.7656E-05;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm1000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 9.2579E-03;
+				cross_sect2 = 8.1472E-04;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm3000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.3376E-05;
+				cross_sect2 = 1.4767E-06;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm6000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 1.8881E-07;
+				cross_sect2 = 1.8932E-08;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm10000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 2.2234E-08;
+				cross_sect2 = 2.2245E-09;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dmv_dm400_mm30000_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 2.6534E-10;
+				cross_sect2 = 2.6414E-11;
+				flag_comb++;
+			}
+
+
+
+
+			if ( (input_file_name.EndsWith("dma_dm50_mm50_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 4.2185E-02;
+				cross_sect2 = 8.5520E-04;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm50_mm100_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 9.3229E-02;
+				cross_sect2 = 1.5222E-03;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm50_mm300_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 5.9043E-02;
+				cross_sect2 = 1.9425E-03;
+				flag_comb++;
+			}
+
+			if ( (input_file_name.EndsWith("dma_dm50_mm600_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 8.8116E-03;
+				cross_sect2 = 5.2282E-04;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm400_mm50_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 3.5215E-05;
+				cross_sect2 = 3.3535E-06;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm400_mm100_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 3.5220E-05;
+				cross_sect2 = 3.3552E-06;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm400_mm300_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 4.2157E-05;
+				cross_sect2 = 3.8423E-06;
+				flag_comb++;
+			}
+			if ( (input_file_name.EndsWith("dma_dm400_mm600_w3_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
+				cross_sect1 = 7.2973E-05;
+				cross_sect2 = 6.5962E-06;
+				flag_comb++;
+			}
+
+
 
 
 			if ( (input_file_name.EndsWith("dma_dm50_mm50_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
@@ -431,6 +679,7 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 				cross_sect2 = 6.7523E-06;
 				flag_comb++;
 			}
+
 
 
 
@@ -698,7 +947,7 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 								// Turn-on : without trigger
 
 								xe_pt_h_eff_tr->FillWeighted(flag_prodr_t[1]==1 , weight, xe_pt/1000);
-								eff_off_criteria = flag_OR_1;
+
 
 								// Turn on : RAZOR
 
@@ -708,50 +957,50 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 
 									// Turn-on
 
-									shatR_h_eff_tr->FillWeighted(eff_off_criteria, weight,shatR/1000 );
-									gaminvR_h_eff_tr->FillWeighted(eff_off_criteria, weight,gaminvR/1000);
-					                		raz_var_h_eff_tr->FillWeighted(eff_off_criteria, weight,shatR/1000, gaminvR/1000);
+									shatR_h_eff_tr->FillWeighted(flag_OR_3, weight,shatR/1000 );
+									gaminvR_h_eff_tr->FillWeighted(flag_OR_3, weight,gaminvR/1000);
+					                		raz_var_h_eff_tr->FillWeighted(flag_OR_3, weight,shatR/1000, gaminvR/1000);
 
-									if(gaminvR>=shatR_gaminvR_c1) shatR_h_eff_tr_c1->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c2) shatR_h_eff_tr_c2->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c3) shatR_h_eff_tr_c3->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c4) shatR_h_eff_tr_c4->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c5) shatR_h_eff_tr_c5->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c6) shatR_h_eff_tr_c6->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c7) shatR_h_eff_tr_c7->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c8) shatR_h_eff_tr_c8->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c9) shatR_h_eff_tr_c9->FillWeighted(eff_off_criteria, weight, shatR/1000);
-									if(gaminvR>=shatR_gaminvR_c10) shatR_h_eff_tr_c10->FillWeighted(eff_off_criteria, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c1) shatR_h_eff_tr_c1->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c2) shatR_h_eff_tr_c2->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c3) shatR_h_eff_tr_c3->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c4) shatR_h_eff_tr_c4->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c5) shatR_h_eff_tr_c5->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c6) shatR_h_eff_tr_c6->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c7) shatR_h_eff_tr_c7->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c8) shatR_h_eff_tr_c8->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c9) shatR_h_eff_tr_c9->FillWeighted(flag_OR_3, weight, shatR/1000);
+									if(gaminvR>=shatR_gaminvR_c10) shatR_h_eff_tr_c10->FillWeighted(flag_OR_3, weight, shatR/1000);
 
 
 									// 1-Eff
 
-									shatR_h_eff_tr_no->FillWeighted(eff_off_criteria==0, weight,shatR/1000 );
-									gaminvR_h_eff_tr_no->FillWeighted(eff_off_criteria==0, weight,gaminvR/1000);
-					                		raz_var_h_eff_tr_no->FillWeighted(eff_off_criteria==0, weight,shatR/1000, gaminvR/1000);
+									shatR_h_eff_tr_no->FillWeighted(flag_OR_3==0, weight,shatR/1000 );
+									gaminvR_h_eff_tr_no->FillWeighted(flag_OR_3==0, weight,gaminvR/1000);
+					                		raz_var_h_eff_tr_no->FillWeighted(flag_OR_3==0, weight,shatR/1000, gaminvR/1000);
 
-									if(gaminvR >= shatR_gaminvR_c1) shatR_h_eff_tr_c1_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c2) shatR_h_eff_tr_c2_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c3) shatR_h_eff_tr_c3_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c4) shatR_h_eff_tr_c4_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c5) shatR_h_eff_tr_c5_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c6) shatR_h_eff_tr_c6_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c7) shatR_h_eff_tr_c7_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c8) shatR_h_eff_tr_c8_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c9) shatR_h_eff_tr_c9_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c10) shatR_h_eff_tr_c10_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c1) shatR_h_eff_tr_c1_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c2) shatR_h_eff_tr_c2_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c3) shatR_h_eff_tr_c3_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c4) shatR_h_eff_tr_c4_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c5) shatR_h_eff_tr_c5_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c6) shatR_h_eff_tr_c6_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c7) shatR_h_eff_tr_c7_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c8) shatR_h_eff_tr_c8_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c9) shatR_h_eff_tr_c9_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c10) shatR_h_eff_tr_c10_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
 
 
-									if(gaminvR >= shatR_gaminvR_c11) shatR_h_eff_tr_c11_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c12) shatR_h_eff_tr_c12_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c13) shatR_h_eff_tr_c13_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c14) shatR_h_eff_tr_c14_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c15) shatR_h_eff_tr_c15_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c16) shatR_h_eff_tr_c16_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c17) shatR_h_eff_tr_c17_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c18) shatR_h_eff_tr_c18_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c19) shatR_h_eff_tr_c19_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c20) shatR_h_eff_tr_c20_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c11) shatR_h_eff_tr_c11_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c12) shatR_h_eff_tr_c12_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c13) shatR_h_eff_tr_c13_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c14) shatR_h_eff_tr_c14_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c15) shatR_h_eff_tr_c15_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c16) shatR_h_eff_tr_c16_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c17) shatR_h_eff_tr_c17_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c18) shatR_h_eff_tr_c18_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c19) shatR_h_eff_tr_c19_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c20) shatR_h_eff_tr_c20_no->FillWeighted(flag_OR_3==0, weight, shatR/1000);
 
 
 								} // end the RAZOR turn-on
@@ -782,7 +1031,7 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 		else cout << "No files in " <<   <<endl;
 
 
-
+}
 // end parsedir
 
 
@@ -1324,9 +1573,12 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 	       // off_f1->SetParameters(off_prodr,off_c_1,off_c_2);
 	//	off_f1->SetParLimits(0,0,400);
 		off_f1->SetParLimits(0,0,300);
-		off_f1->SetParLimits(1,-350,350);
-		off_f1->SetParLimits(2,-1,1);
+//		off_f1->SetParLimits(1,-350,350);
+//		off_f1->SetParLimits(2,-1,1);
 
+
+			off_f1->SetParLimits(1,-500,500);
+			off_f1->SetParLimits(2,-2,2);
 
 		graph_1->Fit("off_f1");
 
@@ -1471,7 +1723,7 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 
 
 
-	        TFile* efficiency_turnon_output= new TFile (output_directory+"/dma_w8pi_"+c_prodr+"_eff_turnon_OR1.root" ,"recreate");
+	        TFile* efficiency_turnon_output= new TFile (output_directory+"/all"+c_prodr+"_eff_turnon.root" ,"recreate");
 
 		xe_pt_h_eff_tr->Write();
 		shatR_h_eff_tr->Write();
@@ -1491,24 +1743,24 @@ vector<Float_t> axial_w8pi_trigger_turn_on_comb(TString c_prodr, Float_t prodr, 
 		graph_1->Write();
 
 
-	        c3->SaveAs(output_directory+"/dma_w8pi_"+c_prodr+"_xe_pt_eff_OR1.pdf");
+	        c3->SaveAs(output_directory+"/all_w3_"+c_prodr+"_xe_pt_eff.pdf");
 	        c3->Close();
 	//        c4->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatr_eff.pdf");
 	        c4->Close();
 	//        c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_gaminvr_eff.pdf");
 	        c5->Close();
-	        c6->SaveAs(output_directory+"/dma_w8pi_"+c_prodr+"_raz_var_2d_eff_OR1.pdf");
+	        c6->SaveAs(output_directory+"/all_w3_"+c_prodr+"_raz_var_2d_eff.pdf");
 	        c6->Close();
 
 
-	        c7->SaveAs(output_directory+"/dma_w8pi_"+c_prodr+"_shatr_noeff_OR1.pdf");
+	        c7->SaveAs(output_directory+"/all_w3_"+c_prodr+"_shatr_noeff.pdf");
 	        c7->Close();
-	        c8->SaveAs(output_directory+"/dma_w8pi_"+c_prodr+"_gaminvr_noeff_OR1.pdf");
+	        c8->SaveAs(output_directory+"/all_w3_"+c_prodr+"_gaminvr_noeff.pdf");
 	        c8->Close();
 	//        c9->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_noeff.pdf");
 	        c9->Close();
 
-		canvas_1->SaveAs(output_directory+"/dma_w8pi_"+c_prodr+"_parametrize_OR1.pdf");
+		canvas_1->SaveAs(output_directory+"/all_w3_"+c_prodr+"_parametrize.pdf");
 		canvas_1->Close();
 
 	        efficiency_turnon_output->Close();

@@ -35,6 +35,37 @@ void parseDir(TString dirname){
 
 	int ece = 0;
 
+	TString choose_txt_directory = "/afs/cern.ch/user/e/eakilli/razor_8tev/ece_code_8tev/Output_text";
+
+	ofstream  				            dm_file(choose_txt_directory+"/dm_axial_w8pi_file.txt");
+	ofstream  							   mm_file(choose_txt_directory+"/mm_axial_w8pi_file.txt");
+	ofstream  	    file_efficiencies_eff_xe(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_xe.txt");
+	ofstream  	  file_efficiencies_eff_or_1(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_1.txt");
+	ofstream  	  file_efficiencies_eff_or_2(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_2.txt");
+	ofstream  	  file_efficiencies_eff_or_3(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_3.txt");
+	ofstream  	  file_efficiencies_eff_or_4(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_4.txt");
+	ofstream  	file_efficiencies_eff_xe_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_xe_off.txt");
+	ofstream  file_efficiencies_eff_or_1_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_1_off.txt");
+	ofstream  file_efficiencies_eff_or_2_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_2_off.txt");
+	ofstream  file_efficiencies_eff_or_3_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_3_off.txt");
+	ofstream  file_efficiencies_eff_or_4_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_4_off.txt");
+	ofstream  file_efficiencies_eff_or_5_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_5_off.txt");
+	ofstream  file_efficiencies_eff_or_6_off(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_6_off.txt");
+
+	ofstream  	    file_efficiencies_eff_xe_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_xe_2j.txt");
+	ofstream  	  file_efficiencies_eff_or_1_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_1_2j.txt");
+	ofstream  	  file_efficiencies_eff_or_2_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_2_2j.txt");
+	ofstream  	  file_efficiencies_eff_or_3_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_3_2j.txt");
+	ofstream  	  file_efficiencies_eff_or_4_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_4_2j.txt");
+	ofstream  	file_efficiencies_eff_xe_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_xe_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_1_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_1_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_2_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_2_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_3_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_3_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_4_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_4_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_5_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_5_off_2j.txt");
+	ofstream  file_efficiencies_eff_or_6_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_6_off_2j.txt");
+
+
 	if (files) {
 
 		cout << "Found files." << endl;
@@ -65,42 +96,58 @@ void parseDir(TString dirname){
 				cross_sect1 = 4.1717E-02;
 				cross_sect2 = 8.4859E-04;
 				flag_comb++;
+				dm_file << 50  << endl;
+				mm_file << 50 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm50_mm100_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 1.4820E-01;
 				cross_sect2 = 2.0674E-03;
 				flag_comb++;
+				dm_file << 50 << endl;
+				mm_file << 100 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm50_mm300_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 5.9839E-01;
 				cross_sect2 = 1.8850E-02;
 				flag_comb++;
+				dm_file << 50 << endl;
+				mm_file << 300 << endl;
 			}
 
 			if ( (input_file_name.EndsWith("dma_dm50_mm600_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 8.4463E-02;
 				cross_sect2 = 5.3156E-03;
 				flag_comb++;
+				dm_file << 50 << endl;
+				mm_file << 600 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm400_mm50_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 3.5488E-05;
 				cross_sect2 = 3.3520E-06;
 				flag_comb++;
+				dm_file << 400 << endl;
+				mm_file << 50 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm400_mm100_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 3.5351E-05;
 				cross_sect2 = 3.3685E-06;
 				flag_comb++;
+				dm_file << 400 << endl;
+				mm_file << 100 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm400_mm300_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 4.0287E-05;
 				cross_sect2 = 3.8236E-06;
 				flag_comb++;
+				dm_file << 400 << endl;
+				mm_file << 300 << endl;
 			}
 			if ( (input_file_name.EndsWith("dma_dm400_mm600_w8pi_qcut80_razor.root"))  && input_file_name(0,12)=="triggerInfo_"){
 				cross_sect1 = 7.3279E-05;
 				cross_sect2 = 6.7523E-06;
 				flag_comb++;
+				dm_file << 400 << endl;
+				mm_file << 600 << endl;
 			}
 
 			if( flag_comb == 1 ) {
@@ -151,11 +198,41 @@ void parseDir(TString dirname){
 				}
 
 
-				for(Int_t l = 0 ; l<efficiency_all.size() ; l++){
+/*				for(Int_t l = 0 ; l<efficiency_all.size() ; l++){
 
 					cout << efficiency_all[l] << endl ;
 
 				}
+*/
+
+
+				 	    file_efficiencies_eff_xe << efficiency_all[0] << endl;
+				 	  file_efficiencies_eff_or_1 << efficiency_all[1] << endl;
+				 	  file_efficiencies_eff_or_2 << efficiency_all[2] << endl;
+				 	  file_efficiencies_eff_or_3 << efficiency_all[3] << endl;
+				 	  file_efficiencies_eff_or_4 << efficiency_all[4] << endl;
+				 	file_efficiencies_eff_xe_off << efficiency_all[5] << endl;
+				 file_efficiencies_eff_or_1_off << efficiency_all[6] << endl;
+				 file_efficiencies_eff_or_2_off << efficiency_all[7] << endl;
+				 file_efficiencies_eff_or_3_off << efficiency_all[8] << endl;
+				 file_efficiencies_eff_or_4_off << efficiency_all[9] << endl;
+				 file_efficiencies_eff_or_5_off << efficiency_all[10] << endl;
+				 file_efficiencies_eff_or_6_off << efficiency_all[11] << endl;
+
+				 	    file_efficiencies_eff_xe_2j << efficiency_all[12] << endl;
+				 	  file_efficiencies_eff_or_1_2j << efficiency_all[13] << endl;
+				 	  file_efficiencies_eff_or_2_2j << efficiency_all[14] << endl;
+				 	  file_efficiencies_eff_or_3_2j << efficiency_all[15] << endl;
+				 	  file_efficiencies_eff_or_4_2j << efficiency_all[16] << endl;
+				 	file_efficiencies_eff_xe_off_2j << efficiency_all[17] << endl;
+				 file_efficiencies_eff_or_1_off_2j << efficiency_all[18] << endl;
+				 file_efficiencies_eff_or_2_off_2j << efficiency_all[19] << endl;
+				 file_efficiencies_eff_or_3_off_2j << efficiency_all[20] << endl;
+				 file_efficiencies_eff_or_4_off_2j << efficiency_all[21] << endl;
+				 file_efficiencies_eff_or_5_off_2j << efficiency_all[22] << endl;
+				 file_efficiencies_eff_or_6_off_2j << efficiency_all[23] << endl;
+
+
 
 
 			}
@@ -164,5 +241,38 @@ void parseDir(TString dirname){
 	}
 
 	else cout << "No files in " <<   <<endl;
+
+
+
+	 				            dm_file.close();
+	 							   mm_file.close();
+	 	    file_efficiencies_eff_xe.close();
+	 	  file_efficiencies_eff_or_1.close();
+	 	  file_efficiencies_eff_or_2.close();
+	 	  file_efficiencies_eff_or_3.close();
+	 	  file_efficiencies_eff_or_4.close();
+	 	file_efficiencies_eff_xe_off.close();
+	 file_efficiencies_eff_or_1_off.close();
+	 file_efficiencies_eff_or_2_off.close();
+	 file_efficiencies_eff_or_3_off.close();
+	 file_efficiencies_eff_or_4_off.close();
+	 file_efficiencies_eff_or_5_off.close();
+	 file_efficiencies_eff_or_6_off.close();
+
+	 	    file_efficiencies_eff_xe_2j.close();
+	 	  file_efficiencies_eff_or_1_2j.close();
+	 	  file_efficiencies_eff_or_2_2j.close();
+	 	  file_efficiencies_eff_or_3_2j.close();
+	 	  file_efficiencies_eff_or_4_2j.close();
+	 	file_efficiencies_eff_xe_off_2j.close();
+	 file_efficiencies_eff_or_1_off_2j.close();
+	 file_efficiencies_eff_or_2_off_2j.close();
+	 file_efficiencies_eff_or_3_off_2j.close();
+	 file_efficiencies_eff_or_4_off_2j.close();
+	 file_efficiencies_eff_or_5_off_2j.close();
+	 file_efficiencies_eff_or_6_off_2j.close();
+
+
+
 }
 
