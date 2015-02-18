@@ -52,7 +52,7 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
 	shatR_h_eff_tr_c7_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c7_no","Eff shatr , gaminvr", 60,0,3000);
 	shatR_h_eff_tr_c8_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c8_no","Eff shatr , gaminvr", 60,0,3000);
 	shatR_h_eff_tr_c9_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c9_no","Eff shatr , gaminvr", 60,0,3000);
-	shatR_h_eff_tr_c10_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c10_no","Eff shatr , gaminvr", 60,0,3000);
+//	shatR_h_eff_tr_c10_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c10_no","Eff shatr , gaminvr", 60,0,3000);
 
 
 	shatR_h_eff_tr_c11_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c11_no","Eff shatr , gaminvr", 60,0,3000);
@@ -64,7 +64,41 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
 	shatR_h_eff_tr_c17_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c17_no","Eff shatr , gaminvr", 60,0,3000);
 	shatR_h_eff_tr_c18_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c18_no","Eff shatr , gaminvr", 60,0,3000);
 	shatR_h_eff_tr_c19_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c19_no","Eff shatr , gaminvr", 60,0,3000);
-	shatR_h_eff_tr_c20_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c20_no","Eff shatr , gaminvr", 60,0,3000);
+//	shatR_h_eff_tr_c20_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c20_no","Eff shatr , gaminvr", 60,0,3000);
+
+
+
+	shatR_h_eff_tr_c21_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c21_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c22_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c22_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c23_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c23_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c24_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c24_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c25_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c25_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c26_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c26_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c27_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c27_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c28_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c28_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c29_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c29_no","Eff shatr , gaminvr", 60,0,3000);
+//	shatR_h_eff_tr_c30_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c30_no","Eff shatr , gaminvr", 60,0,3000);
+
+
+
+	shatR_h_eff_tr_c31_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c31_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c32_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c32_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c33_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c33_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c34_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c34_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c35_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c35_no","Eff shatr , gaminvr", 60,0,3000);
+//	shatR_h_eff_tr_c36_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c36_no","Eff shatr , gaminvr", 60,0,3000);
+
+
+	shatR_h_eff_tr_c41_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c41_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c42_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c42_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c43_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c43_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c44_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c44_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c45_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c45_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c46_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c46_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c47_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c47_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c48_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c48_no","Eff shatr , gaminvr", 60,0,3000);
+	shatR_h_eff_tr_c49_no = (TEfficiency*) new TEfficiency("shatR_h_eff_tr_c49_no","Eff shatr , gaminvr", 60,0,3000);
+
 
 
        	xe_pt_h_eff_tr->SetStatisticOption(1);
@@ -77,6 +111,10 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
        	shatR_h_eff_tr_c6  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c7  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c8  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c9  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c10  ->SetStatisticOption(1);
+
+
        	gaminvR_h_eff_tr   ->SetStatisticOption(1);
        	raz_var_h_eff_tr   ->SetStatisticOption(1);
        	shatR_h_eff_tr_no     ->SetStatisticOption(1);
@@ -89,7 +127,7 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
        	shatR_h_eff_tr_c7_no  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c8_no  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c9_no  ->SetStatisticOption(1);
-       	shatR_h_eff_tr_c10_no  ->SetStatisticOption(1);
+   //    	shatR_h_eff_tr_c10_no  ->SetStatisticOption(1);
 
 
        	shatR_h_eff_tr_c11_no  ->SetStatisticOption(1);
@@ -101,7 +139,38 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
        	shatR_h_eff_tr_c17_no  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c18_no  ->SetStatisticOption(1);
        	shatR_h_eff_tr_c19_no  ->SetStatisticOption(1);
-      	shatR_h_eff_tr_c20_no  ->SetStatisticOption(1);
+//      shatR_h_eff_tr_c20_no  ->SetStatisticOption(1);
+
+       	shatR_h_eff_tr_c21_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c22_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c23_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c24_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c25_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c26_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c27_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c28_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c29_no  ->SetStatisticOption(1);
+//      	shatR_h_eff_tr_c30_no  ->SetStatisticOption(1);
+
+       	shatR_h_eff_tr_c31_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c32_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c33_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c34_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c35_no  ->SetStatisticOption(1);
+//    	shatR_h_eff_tr_c36_no  ->SetStatisticOption(1);
+
+
+
+
+       	shatR_h_eff_tr_c41_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c42_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c43_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c44_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c45_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c46_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c47_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c48_no  ->SetStatisticOption(1);
+       	shatR_h_eff_tr_c49_no  ->SetStatisticOption(1);
 
 
 
@@ -139,7 +208,7 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
         shatR_h_eff_tr_c7_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c8_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c9_no->SetUseWeightedEvents();
-        shatR_h_eff_tr_c10_no->SetUseWeightedEvents();
+//        shatR_h_eff_tr_c10_no->SetUseWeightedEvents();
 
 
         shatR_h_eff_tr_c11_no->SetUseWeightedEvents();
@@ -151,8 +220,36 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
         shatR_h_eff_tr_c17_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c18_no->SetUseWeightedEvents();
         shatR_h_eff_tr_c19_no->SetUseWeightedEvents();
-        shatR_h_eff_tr_c20_no->SetUseWeightedEvents();
+//        shatR_h_eff_tr_c20_no->SetUseWeightedEvents();
 
+        shatR_h_eff_tr_c21_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c22_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c23_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c24_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c25_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c26_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c27_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c28_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c29_no->SetUseWeightedEvents();
+//        shatR_h_eff_tr_c30_no->SetUseWeightedEvents();
+
+
+        shatR_h_eff_tr_c31_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c32_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c33_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c34_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c35_no->SetUseWeightedEvents();
+//        shatR_h_eff_tr_c36_no->SetUseWeightedEvents();
+
+        shatR_h_eff_tr_c41_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c42_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c43_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c44_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c45_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c46_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c47_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c48_no->SetUseWeightedEvents();
+        shatR_h_eff_tr_c49_no->SetUseWeightedEvents();
 
 
 	Float_t shatR_gaminvR_c1 = 800;
@@ -166,6 +263,16 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
         Float_t shatR_gaminvR_c9 = 160;
         Float_t shatR_gaminvR_c10 = 80;
 
+	TString gaminvR_c1 = "0.8";
+	TString gaminvR_c2 = "0.72";
+ 	TString gaminvR_c3 = "0.64";
+	TString gaminvR_c4 = "0.56";
+	TString gaminvR_c5 = "0.48";
+	TString gaminvR_c6 = "0.40";
+	TString gaminvR_c7 = "0.32";
+        TString gaminvR_c8 = "0.24";
+        TString gaminvR_c9 = "0.16";
+        TString gaminvR_c10 = "0.08";
 
 	Float_t shatR_gaminvR_c11 = 760;
 	Float_t shatR_gaminvR_c12 = 680;
@@ -176,20 +283,44 @@ vector<Float_t> all_trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t
 	Float_t shatR_gaminvR_c17 = 280;
         Float_t shatR_gaminvR_c18 = 200;
         Float_t shatR_gaminvR_c19 = 120;
-        Float_t shatR_gaminvR_c20 = 40;
+//        Float_t shatR_gaminvR_c20 = 40;
+
+
+	Float_t shatR_gaminvR_c21 = 780;
+	Float_t shatR_gaminvR_c22 = 700;
+	Float_t shatR_gaminvR_c23 = 620;
+	Float_t shatR_gaminvR_c24 = 540;
+	Float_t shatR_gaminvR_c25 = 460;
+	Float_t shatR_gaminvR_c26 = 380;
+	Float_t shatR_gaminvR_c27 = 300;
+        Float_t shatR_gaminvR_c28 = 220;
+        Float_t shatR_gaminvR_c29 = 140;
+//        Float_t shatR_gaminvR_c30 = 60;
+
+
+	Float_t shatR_gaminvR_c31 = 820;
+	Float_t shatR_gaminvR_c32 = 840;
+	Float_t shatR_gaminvR_c33 = 860;
+	Float_t shatR_gaminvR_c34 = 880;
+	Float_t shatR_gaminvR_c35 = 900;
+//	Float_t shatR_gaminvR_c36 = 920;
 
 
 
-	TString gaminvR_c1 = "0.8";
-	TString gaminvR_c2 = "0.72";
- 	TString gaminvR_c3 = "0.64";
-	TString gaminvR_c4 = "0.56";
-	TString gaminvR_c5 = "0.48";
-	TString gaminvR_c6 = "0.40";
-	TString gaminvR_c7 = "0.32";
-        TString gaminvR_c8 = "0.24";
-        TString gaminvR_c9 = "0.16";
-        TString gaminvR_c10 = "0.88";
+	Float_t shatR_gaminvR_c41 = 740;
+	Float_t shatR_gaminvR_c42 = 660;
+	Float_t shatR_gaminvR_c43 = 580;
+	Float_t shatR_gaminvR_c44 = 500;
+	Float_t shatR_gaminvR_c45 = 420;
+	Float_t shatR_gaminvR_c46 = 340;
+	Float_t shatR_gaminvR_c47 = 260;
+        Float_t shatR_gaminvR_c48 = 180;
+        Float_t shatR_gaminvR_c49 = 100;
+
+
+
+
+
 
 	// Define weights and number of events for the seperate trees and the trees loop
 	Float_t weight_1 = 0;
@@ -992,7 +1123,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 									if(gaminvR >= shatR_gaminvR_c7) shatR_h_eff_tr_c7_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 									if(gaminvR >= shatR_gaminvR_c8) shatR_h_eff_tr_c8_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 									if(gaminvR >= shatR_gaminvR_c9) shatR_h_eff_tr_c9_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c10) shatR_h_eff_tr_c10_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+						//			if(gaminvR >= shatR_gaminvR_c10) shatR_h_eff_tr_c10_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 
 
 									if(gaminvR >= shatR_gaminvR_c11) shatR_h_eff_tr_c11_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
@@ -1004,7 +1135,37 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 									if(gaminvR >= shatR_gaminvR_c17) shatR_h_eff_tr_c17_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 									if(gaminvR >= shatR_gaminvR_c18) shatR_h_eff_tr_c18_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 									if(gaminvR >= shatR_gaminvR_c19) shatR_h_eff_tr_c19_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
-									if(gaminvR >= shatR_gaminvR_c20) shatR_h_eff_tr_c20_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+						//			if(gaminvR >= shatR_gaminvR_c20) shatR_h_eff_tr_c20_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+
+
+									if(gaminvR >= shatR_gaminvR_c21) shatR_h_eff_tr_c21_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c22) shatR_h_eff_tr_c22_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c23) shatR_h_eff_tr_c23_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c24) shatR_h_eff_tr_c24_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c25) shatR_h_eff_tr_c25_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c26) shatR_h_eff_tr_c26_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c27) shatR_h_eff_tr_c27_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c28) shatR_h_eff_tr_c28_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c29) shatR_h_eff_tr_c29_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+					//				if(gaminvR >= shatR_gaminvR_c30) shatR_h_eff_tr_c30_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+
+
+									if(gaminvR >= shatR_gaminvR_c31) shatR_h_eff_tr_c31_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c32) shatR_h_eff_tr_c32_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c33) shatR_h_eff_tr_c33_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c34) shatR_h_eff_tr_c34_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c35) shatR_h_eff_tr_c35_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+				//					if(gaminvR >= shatR_gaminvR_c36) shatR_h_eff_tr_c36_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+
+									if(gaminvR >= shatR_gaminvR_c41) shatR_h_eff_tr_c41_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c42) shatR_h_eff_tr_c42_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c43) shatR_h_eff_tr_c43_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c44) shatR_h_eff_tr_c44_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c45) shatR_h_eff_tr_c45_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c46) shatR_h_eff_tr_c46_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c47) shatR_h_eff_tr_c47_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c48) shatR_h_eff_tr_c48_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
+									if(gaminvR >= shatR_gaminvR_c49) shatR_h_eff_tr_c49_no->FillWeighted(eff_off_criteria==0, weight, shatR/1000);
 
 
 								} // end the RAZOR turn-on
@@ -1171,15 +1332,17 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 		c7->Clear();
 		c7->SetLogy();
 		gPad->SetGrid();
-		shatR_h_eff_tr_no->SetTitle("1 - Efficiency ; #sqrt{#hat{s}_{R}}[GeV] ; 1 - Efficiency");
-		shatR_h_eff_tr_no->Draw();
+//		shatR_h_eff_tr_no->SetTitle("1 - Efficiency ; #sqrt{#hat{s}_{R}}[GeV] ; 1 - Efficiency");
+//		shatR_h_eff_tr_no->Draw();
+
 
 
 
 		shatR_h_eff_tr_c1_no->SetLineColor(2);
 		shatR_h_eff_tr_c1_no->SetMarkerColor(2);
 		shatR_h_eff_tr_c1_no->SetMarkerStyle(21);
-		shatR_h_eff_tr_c1_no->Draw("same");
+		shatR_h_eff_tr_c1_no->Draw();
+		shatR_h_eff_tr_c1_no->SetTitle("1 - Efficiency ; #sqrt{#hat{s}_{R}}[GeV] ; 1 - Efficiency");
 
 		shatR_h_eff_tr_c2_no->SetLineColor(3);
 		shatR_h_eff_tr_c2_no->SetMarkerColor(3);
@@ -1222,7 +1385,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 	*/
 	     	leg = new TLegend(0.63,0.41,0.83,0.90);
 	        leg->SetTextSize(0.04);
-	        leg->AddEntry(shatR_h_eff_tr,"All 1/#gamma_{R+1}", "p");
+	//        leg->AddEntry(shatR_h_eff_tr,"All 1/#gamma_{R+1}", "p");
 	//	leg->AddEntry(shatR_h_eff_tr_c8_no,"1/#gamma_{R+1} #geq"+gaminvR_c8, "p");
 		leg->AddEntry(shatR_h_eff_tr_c7_no,"1/#gamma_{R+1} #geq"+gaminvR_c7, "p");
 		leg->AddEntry(shatR_h_eff_tr_c6_no,"1/#gamma_{R+1} #geq"+gaminvR_c6, "p");
@@ -1243,15 +1406,432 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 		vector<Float_t> x_axis_vect(0);
 		vector<Float_t> y_axis_vect(0);
 		Float_t x_ax = 0;
-		Float_t hit_no_eff = 0.07;
+		Float_t hit_no_eff = 0.01;
 
 
-	/*
 
+// 20+6 additional gaminvR
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c49_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c49_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c49);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c48_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c48_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c48);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c47_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c47_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c47);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c46_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c46_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c46);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c45_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c45_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c45);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c44_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c44_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c44);
+				break;
+			}
+	        }
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c43_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c43_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c43);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c42_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c42_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c42);
+				break;
+			}
+	        }
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c41_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c41_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c41);
+				break;
+			}
+	        }
+
+
+
+/*	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c36_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c36_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c36);
+				break;
+			}
+	        }
+
+*/
+
+// 0.8 is the limit
+/*	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c35_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c35_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c35);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c34_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c34_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c34);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c33_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c33_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c33);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c32_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c32_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c32);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c31_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c31_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c31);
+				break;
+			}
+	        }
+
+*/
+
+/*
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c30_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c30_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c30);
+				break;
+			}
+	        }
+
+*/
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c29_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c29_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c29);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c28_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c28_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c28);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c27_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c27_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c27);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c26_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c26_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c26);
+				break;
+			}
+	        }
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c25_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c25_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c25);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c24_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c24_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c24);
+				break;
+			}
+	        }
+
+
+Ã	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c23_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c23_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c23);
+				break;
+			}
+	        }
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c22_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c22_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c22);
+				break;
+			}
+	        }
+
+
+
+
+
+	        for(Int_t x = 0; x < 60 ; x++){
+
+			eff_bin = shatR_h_eff_tr_c21_no->GetEfficiency(x);
+			eff_err_low = shatR_h_eff_tr_c21_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
+
+	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
+				x_ax = x * 50 + 25 ;
+				x_axis_vect.push_back(x_ax);
+				y_axis_vect.push_back(shatR_gaminvR_c21);
+				break;
+			}
+	        }
+
+
+
+
+
+// Old slash star
+
+/*
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c20_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c20_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1260,12 +1840,13 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 				break;
 			}
 	        }
-
+*/
 
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c19_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c19_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1281,6 +1862,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c18_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c18_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1291,13 +1873,14 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 	        }
 
 
-	*/
+// Old slash star close
+
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c17_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c17_no->GetEfficiencyErrorLow(x);
 
-	//eff_err_low = 0;
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1313,7 +1896,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c16_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c16_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1327,7 +1910,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c15_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c15_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1342,7 +1925,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c14_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c14_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1357,7 +1940,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c13_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c13_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1371,7 +1954,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c12_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c12_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1387,7 +1970,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c11_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c11_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1398,12 +1981,13 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 
 
-	/*
-
+// Old slash star
+/*
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c10_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c10_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1413,11 +1997,12 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 			}
 	        }
 
-
+*/
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c9_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c9_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1433,6 +2018,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c8_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c8_no->GetEfficiencyErrorLow(x);
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
@@ -1442,12 +2028,12 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 			}
 	        }
 
-	*/
+// Old slash star close
 	        for(Int_t x = 0; x < 60 ; x++){
 
 			eff_bin = shatR_h_eff_tr_c7_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c7_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1461,7 +2047,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c6_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c6_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1475,7 +2061,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c5_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c5_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 		      	if(eff_bin-eff_err_low  <= hit_no_eff && eff_bin!=0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1490,7 +2076,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			eff_bin = shatR_h_eff_tr_c4_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c4_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 
 	    		if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
@@ -1506,7 +2092,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			Double_t eff_bin = shatR_h_eff_tr_c3_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c3_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	        	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1521,7 +2107,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			Double_t eff_bin = shatR_h_eff_tr_c2_no->GetEfficiency(x);
 	                eff_err_low = shatR_h_eff_tr_c2_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 		 	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1537,7 +2123,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 
 			Double_t eff_bin = shatR_h_eff_tr_c1_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c1_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1546,6 +2132,8 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 				break;
 			}
 	        }
+
+
 
 
 
@@ -1652,14 +2240,14 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 		f2->SetContour(1);
 		f2->SetContourLevel(0,off_prodr); */
 		f2->Draw("same");
-
+/*
 	        leg = new TLegend(0.68,0.80,0.84,0.9);
 	        leg->SetTextSize(0.03);
 	//    	leg->AddEntry(f2,"#bar{#Pi}="+off_prodr_s+"GeV","l");
 		leg->AddEntry(f2,"#bar{#Pi}","l");
 	        leg->Draw();
 
-
+*/
 
 
 		// Output text file
@@ -1761,7 +2349,7 @@ for(Int_t mul_dir= 0; mul_dir<2;mul_dir++){
 	        c7->Close();
 	        c8->SaveAs(output_directory+"/all_w3_"+c_prodr+"_gaminvr_noeff_OR1.pdf");
 	        c8->Close();
-	//        c9->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_noeff.pdf");
+	        c9->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_noeff_OR1.pdf");
 	        c9->Close();
 
 		canvas_1->SaveAs(output_directory+"/all_w3_"+c_prodr+"_parametrize_OR1.pdf");

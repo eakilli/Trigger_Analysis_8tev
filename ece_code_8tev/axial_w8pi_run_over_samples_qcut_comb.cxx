@@ -12,10 +12,13 @@ parseDir("/atlas/data2/userdata/eakilli/razor_output/New_grid_axial");
 
 void parseDir(TString dirname){
 
-        Float_t off_prodr = 115;
-        Float_t off_c1 = -252;
-        Float_t off_c2 = -0.08;
-        TString off_prodr_string = "115";
+
+
+        Float_t off_prodr = 230;
+        Float_t off_c1 = -170;
+        Float_t off_c2 = 0;
+        TString off_prodr_string = "230";
+
 
 	cout << "Operating in " << dirname << endl;
 
@@ -162,7 +165,7 @@ void parseDir(TString dirname){
 
 				cout << "Attempting to tamper with files " << input_file_name_1 << "," <<  input_file_name_2  << endl ;
 
-/*
+
 				// RAZOR VARIABLES AND TRIGGER OVERLAPS
 
 				// Output file razor variables, trigger overlap
@@ -172,7 +175,7 @@ void parseDir(TString dirname){
 				output_file_name_razor = temp_input_file_name_razor.Remove(0,12);
 //				razor_trigger_comb("200",200,85,0.048,  file_directory , input_file_name_1, input_file_name_2, output_directory, output_file_name_razor,cross_sect1,cross_sect2);
                             	razor_trigger_comb("170",170,200,0.0,  file_directory , input_file_name_1, input_file_name_2 , output_directory, output_file_name_razor,cross_sect1,cross_sect2);
-*/
+
 
 
 				// EFFICIENCY

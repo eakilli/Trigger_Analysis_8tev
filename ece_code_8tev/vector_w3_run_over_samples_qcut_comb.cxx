@@ -12,10 +12,10 @@ parseDir("/atlas/data2/userdata/eakilli/razor_output/New_grid");
 
 void parseDir(TString dirname){
 
-	Float_t off_prodr = 115;
-	Float_t off_c1 = -252;
-	Float_t off_c2 = -0.08;
-	TString off_prodr_string = "115";
+	Float_t off_prodr = 230;
+	Float_t off_c1 = -170;
+	Float_t off_c2 = 0;
+	TString off_prodr_string = "230";
 
 	cout << "Operating in " << dirname << endl;
 

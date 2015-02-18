@@ -875,7 +875,7 @@ void trigger_turn_on_comb(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c
 	vector<Float_t> y_axis_vect(0);
 	Float_t x_ax = 0;
 
-       	Float_t hit_no_eff = 0.07;
+       	Float_t hit_no_eff = 0.01;
 
 
 /*

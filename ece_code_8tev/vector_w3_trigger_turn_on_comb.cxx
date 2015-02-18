@@ -1041,7 +1041,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 		vector<Float_t> x_axis_vect(0);
 		vector<Float_t> y_axis_vect(0);
 		Float_t x_ax = 0;
-		Float_t hit_no_eff = 0.07;
+		Float_t hit_no_eff = 0.01;
 
 
 	/*
@@ -1095,7 +1095,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 			eff_bin = shatR_h_eff_tr_c17_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c17_no->GetEfficiencyErrorLow(x);
 
-	//eff_err_low = 0;
+	eff_err_low = 0;
 
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
@@ -1111,7 +1111,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c16_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c16_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1125,7 +1125,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c15_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c15_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1140,7 +1140,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c14_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c14_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1155,7 +1155,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c13_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c13_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1169,7 +1169,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c12_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c12_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1185,7 +1185,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c11_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c11_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25 ;
 				x_axis_vect.push_back(x_ax);
@@ -1245,7 +1245,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c7_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c7_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1259,7 +1259,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c6_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c6_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1273,7 +1273,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c5_no->GetEfficiency(x);
 			eff_err_low = shatR_h_eff_tr_c5_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 		      	if(eff_bin-eff_err_low  <= hit_no_eff && eff_bin!=0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1288,7 +1288,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			eff_bin = shatR_h_eff_tr_c4_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c4_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 
 	    		if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
@@ -1304,7 +1304,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			Double_t eff_bin = shatR_h_eff_tr_c3_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c3_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	        	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1319,7 +1319,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			Double_t eff_bin = shatR_h_eff_tr_c2_no->GetEfficiency(x);
 	                eff_err_low = shatR_h_eff_tr_c2_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 		 	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1335,7 +1335,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 			Double_t eff_bin = shatR_h_eff_tr_c1_no->GetEfficiency(x);
 	        	eff_err_low = shatR_h_eff_tr_c1_no->GetEfficiencyErrorLow(x);
-	//eff_err_low = 0;
+	eff_err_low = 0;
 	            	if(eff_bin-eff_err_low <= hit_no_eff && eff_bin != 0) {
 				x_ax = x * 50 + 25;
 				x_axis_vect.push_back(x_ax);
@@ -1370,16 +1370,26 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 	      	gStyle->SetOptFit(0000);
 		graph_1->Draw("A*");
 
+	        TF2 *f3 = new TF2("f3",prodr_funct,0,3000,0,1,2);
+        	f3->SetParameters(-170,0);
+        	f3->SetLineColor(9);
+        	f3->SetLineWidth(4);
+        	f3->SetContour(1);
+        	f3->SetContourLevel(0,230);
+        	f3->Draw("same");
+
+
 
 		TF1 *off_f1 =new TF1("off_f1", "[0]/(x+[1])-[2]",0,3000 );
 	       // off_f1->SetParameters(off_prodr,off_c_1,off_c_2);
 	//	off_f1->SetParLimits(0,0,400);
 		off_f1->SetParLimits(0,0,300);
 		off_f1->SetParLimits(1,-350,350);
-		off_f1->SetParLimits(2,-1,1);
+//		off_f1->SetParLimits(2,-1,1);
 
-
+		off_f1->FixParameter(2,0);
 		graph_1->Fit("off_f1");
+
 
 
 		Float_t new_off_prodr = off_f1->GetParameter(0);
@@ -1390,6 +1400,8 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 		efficiencies.push_back(new_off_prodr);
 		efficiencies.push_back(new_off_c_1);
 		efficiencies.push_back(new_off_c_2);
+
+
 
 
 		TCanvas *c8 = new TCanvas("c8","1-Efficiency gaminvR");
@@ -1431,6 +1443,10 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 
 */
 
+                f3->Draw("same");
+
+
+
 
 		TCanvas *c9 = new TCanvas("c9","1-Efficiency Raz Var");
 	       	c9->Clear();
@@ -1454,7 +1470,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 		leg->AddEntry(f2,"#bar{#Pi}","l");
 	        leg->Draw();
 
-
+                f3->Draw("same");
 
 
 		// Output text file
@@ -1557,7 +1573,7 @@ vector<Float_t> vector_w3_trigger_turn_on_comb(TString c_prodr, Float_t prodr, F
 	        c7->Close();
 	        c8->SaveAs(output_directory+"/dmv_w3_"+c_prodr+"_gaminvr_noeff_OR1.pdf");
 	        c8->Close();
-	//        c9->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_raz_var_2d_noeff.pdf");
+	        c9->SaveAs(output_directory+"/dmv_w3_"+c_prodr+"_raz_var_2d_noeff_OR1.pdf");
 	        c9->Close();
 
 		canvas_1->SaveAs(output_directory+"/dmv_w3_"+c_prodr+"_parametrize_OR1.pdf");

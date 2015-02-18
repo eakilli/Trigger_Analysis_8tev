@@ -1,0 +1,187 @@
+#include <TH2.h>
+#include <TH1.h>
+#include <TStyle.h>
+#include <TCanvas.h>
+#include <TLatex.h>
+#include <TTree.h>
+#include "common_plotting_functions.hh"
+#include <TGraph.h>
+#include <TEfficiency>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include "Riostream.h"
+
+using namespace std;
+
+
+void efficiency_results_and_plots(){
+
+	TString choose_txt_directory = "/afs/cern.ch/user/e/eakilli/razor_8tev/ece_code_8tev/Output_text";
+	// Open the ROOT file
+  	TFile *eff_results_plots = TFile::Open(choose_txt_directory+"/eff_results_plots.root");
+	// Get the trees
+	TTree*eff_results_plots_vector_w3 = (TTree*)eff_results_plots->Get("eff_results_plots_vector_w3");
+	TTree*eff_results_plots_vector_w8pi  = (TTree*)eff_results_plots->Get("eff_results_plots_vector_w8pi");
+	TTree*eff_results_plots_axial_w3 = (TTree*)eff_results_plots->Get("eff_results_plots_axial_w3");
+	TTree*eff_results_plots_axial_w8pi = (TTree*)eff_results_plots->Get("eff_results_plots_axial_w8pi");
+	// Check the number of events
+	Int_t n_o_e_vector_w3 = eff_results_plots_vector_w3->GetEntries();
+	cout << n_o_e_vector_w3 << endl;
+	Int_t n_o_e_vector_w8pi = eff_results_plots_vector_w8pi->GetEntries();
+	cout << n_o_e_vector_w8pi << endl;
+	Int_t n_o_e_axial_w3 = eff_results_plots_axial_w3->GetEntries();
+	cout << n_o_e_axial_w3 << endl;
+	Int_t n_o_e_axial_w8pi = eff_results_plots_axial_w8pi->GetEntries();
+	cout << n_o_e_axial_w8pi << endl;
+
+	// Define the branch variables...
+	Float_t dm_vector_w3,mm_vector_w3,efficiencies_eff_xe_vector_w3,efficiencies_eff_or_1_vector_w3,efficiencies_eff_or_2_vector_w3,efficiencies_eff_or_3_vector_w3,efficiencies_eff_or_4_vector_w3;
+	Float_t efficiencies_eff_xe_off_vector_w3,efficiencies_eff_or_1_off_vector_w3,efficiencies_eff_or_2_off_vector_w3,efficiencies_eff_or_3_off_vector_w3;
+	Float_t efficiencies_eff_or_4_off_vector_w3,efficiencies_eff_or_5_off_vector_w3,efficiencies_eff_or_6_off_vector_w3;
+	Float_t efficiencies_eff_xe_2j_vector_w3,efficiencies_eff_or_1_2j_vector_w3,efficiencies_eff_or_2_2j_vector_w3,efficiencies_eff_or_3_2j_vector_w3,efficiencies_eff_or_4_2j_vector_w3;
+	Float_t efficiencies_eff_xe_off_2j_vector_w3,efficiencies_eff_or_1_off_2j_vector_w3,efficiencies_eff_or_2_off_2j_vector_w3,efficiencies_eff_or_3_off_2j_vector_w3;
+	Float_t efficiencies_eff_or_4_off_2j_vector_w3,efficiencies_eff_or_5_off_2j_vector_w3,efficiencies_eff_or_6_off_2j_vector_w3;
+
+	Float_t dm_vector_w8pi,mm_vector_w8pi,efficiencies_eff_xe_vector_w8pi,efficiencies_eff_or_1_vector_w8pi,efficiencies_eff_or_2_vector_w8pi,efficiencies_eff_or_3_vector_w8pi,efficiencies_eff_or_4_vector_w8pi;
+	Float_t efficiencies_eff_xe_off_vector_w8pi,efficiencies_eff_or_1_off_vector_w8pi,efficiencies_eff_or_2_off_vector_w8pi,efficiencies_eff_or_3_off_vector_w8pi;
+	Float_t efficiencies_eff_or_4_off_vector_w8pi,efficiencies_eff_or_5_off_vector_w8pi,efficiencies_eff_or_6_off_vector_w8pi;
+	Float_t efficiencies_eff_xe_2j_vector_w8pi,efficiencies_eff_or_1_2j_vector_w8pi,efficiencies_eff_or_2_2j_vector_w8pi,efficiencies_eff_or_3_2j_vector_w8pi,efficiencies_eff_or_4_2j_vector_w8pi;
+	Float_t efficiencies_eff_xe_off_2j_vector_w8pi,efficiencies_eff_or_1_off_2j_vector_w8pi,efficiencies_eff_or_2_off_2j_vector_w8pi,efficiencies_eff_or_3_off_2j_vector_w8pi;
+	Float_t efficiencies_eff_or_4_off_2j_vector_w8pi,efficiencies_eff_or_5_off_2j_vector_w8pi,efficiencies_eff_or_6_off_2j_vector_w8pi;
+
+	Float_t dm_axial_w3,mm_axial_w3,efficiencies_eff_xe_axial_w3,efficiencies_eff_or_1_axial_w3,efficiencies_eff_or_2_axial_w3,efficiencies_eff_or_3_axial_w3,efficiencies_eff_or_4_axial_w3;
+	Float_t efficiencies_eff_xe_off_axial_w3,efficiencies_eff_or_1_off_axial_w3,efficiencies_eff_or_2_off_axial_w3,efficiencies_eff_or_3_off_axial_w3;
+	Float_t efficiencies_eff_or_4_off_axial_w3,efficiencies_eff_or_5_off_axial_w3,efficiencies_eff_or_6_off_axial_w3;
+	Float_t efficiencies_eff_xe_2j_axial_w3,efficiencies_eff_or_1_2j_axial_w3,efficiencies_eff_or_2_2j_axial_w3,efficiencies_eff_or_3_2j_axial_w3,efficiencies_eff_or_4_2j_axial_w3;
+	Float_t efficiencies_eff_xe_off_2j_axial_w3,efficiencies_eff_or_1_off_2j_axial_w3,efficiencies_eff_or_2_off_2j_axial_w3,efficiencies_eff_or_3_off_2j_axial_w3;
+	Float_t efficiencies_eff_or_4_off_2j_axial_w3,efficiencies_eff_or_5_off_2j_axial_w3,efficiencies_eff_or_6_off_2j_axial_w3;
+
+	Float_t dm_axial_w8pi,mm_axial_w8pi,efficiencies_eff_xe_axial_w8pi,efficiencies_eff_or_1_axial_w8pi,efficiencies_eff_or_2_axial_w8pi,efficiencies_eff_or_3_axial_w8pi,efficiencies_eff_or_4_axial_w8pi;
+	Float_t efficiencies_eff_xe_off_axial_w8pi,efficiencies_eff_or_1_off_axial_w8pi,efficiencies_eff_or_2_off_axial_w8pi,efficiencies_eff_or_3_off_axial_w8pi;
+	Float_t efficiencies_eff_or_4_off_axial_w8pi,efficiencies_eff_or_5_off_axial_w8pi,efficiencies_eff_or_6_off_axial_w8pi;
+	Float_t efficiencies_eff_xe_2j_axial_w8pi,efficiencies_eff_or_1_2j_axial_w8pi,efficiencies_eff_or_2_2j_axial_w8pi,efficiencies_eff_or_3_2j_axial_w8pi,efficiencies_eff_or_4_2j_axial_w8pi;
+	Float_t efficiencies_eff_xe_off_2j_axial_w8pi,efficiencies_eff_or_1_off_2j_axial_w8pi,efficiencies_eff_or_2_off_2j_axial_w8pi,efficiencies_eff_or_3_off_2j_axial_w8pi;
+	Float_t efficiencies_eff_or_4_off_2j_axial_w8pi,efficiencies_eff_or_5_off_2j_axial_w8pi,efficiencies_eff_or_6_off_2j_axial_w8pi;
+
+	// Set Branch addresses
+	eff_results_plots_vector_w3->SetBranchAddress("dm_vector_w3",&dm_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("mm_vector_w3",&mm_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_xe_vector_w3",&efficiencies_eff_xe_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_1_vector_w3",&efficiencies_eff_or_1_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_2_vector_w3",&efficiencies_eff_or_2_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_3_vector_w3",&efficiencies_eff_or_3_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_4_vector_w3",&efficiencies_eff_or_4_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_xe_off_vector_w3",&efficiencies_eff_xe_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_1_off_vector_w3",&efficiencies_eff_or_1_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_2_off_vector_w3",&efficiencies_eff_or_2_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_3_off_vector_w3",&efficiencies_eff_or_3_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_4_off_vector_w3",&efficiencies_eff_or_4_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_5_off_vector_w3",&efficiencies_eff_or_5_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_6_off_vector_w3",&efficiencies_eff_or_6_off_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_xe_2j_vector_w3",&efficiencies_eff_xe_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_1_2j_vector_w3",&efficiencies_eff_or_1_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_2_2j_vector_w3",&efficiencies_eff_or_2_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_3_2j_vector_w3",&efficiencies_eff_or_3_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_4_2j_vector_w3",&efficiencies_eff_or_4_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_xe_off_2j_vector_w3",&efficiencies_eff_xe_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_1_off_2j_vector_w3",&efficiencies_eff_or_1_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_2_off_2j_vector_w3",&efficiencies_eff_or_2_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_3_off_2j_vector_w3",&efficiencies_eff_or_3_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_4_off_2j_vector_w3",&efficiencies_eff_or_4_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_5_off_2j_vector_w3",&efficiencies_eff_or_5_off_2j_vector_w3);
+	eff_results_plots_vector_w3->SetBranchAddress("efficiencies_eff_or_6_off_2j_vector_w3",&efficiencies_eff_or_6_off_2j_vector_w3);
+
+	eff_results_plots_vector_w8pi->SetBranchAddress("dm_vector_w8pi",&dm_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("mm_vector_w8pi",&mm_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_xe_vector_w8pi",&efficiencies_eff_xe_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_1_vector_w8pi",&efficiencies_eff_or_1_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_2_vector_w8pi",&efficiencies_eff_or_2_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_3_vector_w8pi",&efficiencies_eff_or_3_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_4_vector_w8pi",&efficiencies_eff_or_4_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_xe_off_vector_w8pi",&efficiencies_eff_xe_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_1_off_vector_w8pi",&efficiencies_eff_or_1_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_2_off_vector_w8pi",&efficiencies_eff_or_2_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_3_off_vector_w8pi",&efficiencies_eff_or_3_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_4_off_vector_w8pi",&efficiencies_eff_or_4_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_5_off_vector_w8pi",&efficiencies_eff_or_5_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_6_off_vector_w8pi",&efficiencies_eff_or_6_off_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_xe_2j_vector_w8pi",&efficiencies_eff_xe_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_1_2j_vector_w8pi",&efficiencies_eff_or_1_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_2_2j_vector_w8pi",&efficiencies_eff_or_2_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_3_2j_vector_w8pi",&efficiencies_eff_or_3_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_4_2j_vector_w8pi",&efficiencies_eff_or_4_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_xe_off_2j_vector_w8pi",&efficiencies_eff_xe_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_1_off_2j_vector_w8pi",&efficiencies_eff_or_1_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_2_off_2j_vector_w8pi",&efficiencies_eff_or_2_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_3_off_2j_vector_w8pi",&efficiencies_eff_or_3_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_4_off_2j_vector_w8pi",&efficiencies_eff_or_4_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_5_off_2j_vector_w8pi",&efficiencies_eff_or_5_off_2j_vector_w8pi);
+	eff_results_plots_vector_w8pi->SetBranchAddress("efficiencies_eff_or_6_off_2j_vector_w8pi",&efficiencies_eff_or_6_off_2j_vector_w8pi);
+
+
+	eff_results_plots_axial_w3->SetBranchAddress("dm_axial_w3",&dm_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("mm_axial_w3",&mm_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_xe_axial_w3",&efficiencies_eff_xe_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_1_axial_w3",&efficiencies_eff_or_1_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_2_axial_w3",&efficiencies_eff_or_2_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_3_axial_w3",&efficiencies_eff_or_3_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_4_axial_w3",&efficiencies_eff_or_4_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_xe_off_axial_w3",&efficiencies_eff_xe_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_1_off_axial_w3",&efficiencies_eff_or_1_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_2_off_axial_w3",&efficiencies_eff_or_2_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_3_off_axial_w3",&efficiencies_eff_or_3_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_4_off_axial_w3",&efficiencies_eff_or_4_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_5_off_axial_w3",&efficiencies_eff_or_5_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_6_off_axial_w3",&efficiencies_eff_or_6_off_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_xe_2j_axial_w3",&efficiencies_eff_xe_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_1_2j_axial_w3",&efficiencies_eff_or_1_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_2_2j_axial_w3",&efficiencies_eff_or_2_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_3_2j_axial_w3",&efficiencies_eff_or_3_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_4_2j_axial_w3",&efficiencies_eff_or_4_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_xe_off_2j_axial_w3",&efficiencies_eff_xe_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_1_off_2j_axial_w3",&efficiencies_eff_or_1_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_2_off_2j_axial_w3",&efficiencies_eff_or_2_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_3_off_2j_axial_w3",&efficiencies_eff_or_3_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_4_off_2j_axial_w3",&efficiencies_eff_or_4_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_5_off_2j_axial_w3",&efficiencies_eff_or_5_off_2j_axial_w3);
+	eff_results_plots_axial_w3->SetBranchAddress("efficiencies_eff_or_6_off_2j_axial_w3",&efficiencies_eff_or_6_off_2j_axial_w3);
+
+	eff_results_plots_axial_w8pi->SetBranchAddress("dm_axial_w8pi",&dm_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("mm_axial_w8pi",&mm_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_xe_axial_w8pi",&efficiencies_eff_xe_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_1_axial_w8pi",&efficiencies_eff_or_1_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_2_axial_w8pi",&efficiencies_eff_or_2_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_3_axial_w8pi",&efficiencies_eff_or_3_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_4_axial_w8pi",&efficiencies_eff_or_4_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_xe_off_axial_w8pi",&efficiencies_eff_xe_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_1_off_axial_w8pi",&efficiencies_eff_or_1_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_2_off_axial_w8pi",&efficiencies_eff_or_2_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_3_off_axial_w8pi",&efficiencies_eff_or_3_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_4_off_axial_w8pi",&efficiencies_eff_or_4_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_5_off_axial_w8pi",&efficiencies_eff_or_5_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_6_off_axial_w8pi",&efficiencies_eff_or_6_off_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_xe_2j_axial_w8pi",&efficiencies_eff_xe_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_1_2j_axial_w8pi",&efficiencies_eff_or_1_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_2_2j_axial_w8pi",&efficiencies_eff_or_2_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_3_2j_axial_w8pi",&efficiencies_eff_or_3_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_4_2j_axial_w8pi",&efficiencies_eff_or_4_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_xe_off_2j_axial_w8pi",&efficiencies_eff_xe_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_1_off_2j_axial_w8pi",&efficiencies_eff_or_1_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_2_off_2j_axial_w8pi",&efficiencies_eff_or_2_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_3_off_2j_axial_w8pi",&efficiencies_eff_or_3_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_4_off_2j_axial_w8pi",&efficiencies_eff_or_4_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_5_off_2j_axial_w8pi",&efficiencies_eff_or_5_off_2j_axial_w8pi);
+	eff_results_plots_axial_w8pi->SetBranchAddress("efficiencies_eff_or_6_off_2j_axial_w8pi",&efficiencies_eff_or_6_off_2j_axial_w8pi);
+
+	// NOW, we can begin :)
+
+
+
+
+
+
+}
+
