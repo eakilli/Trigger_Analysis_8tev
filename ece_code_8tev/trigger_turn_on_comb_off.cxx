@@ -381,7 +381,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
 
 			// New offline but, treat OR of ProdR_2J15_XE55, xe100_XE70 as a single trigger and apply the offline cut on the 2D razor variables plane
-			if( flag_prodr_t_off[0]  || flag_off_raz_xe100_XE70_off ) {
+			if( flag_prodr_t_off[0] ==1 || flag_off_raz_xe100_XE70_off==1 ) {
                                 flag_OR_1_off = 1;
                                 n_o_e_xe100_XE70_or_prodr_2J15_XE55_off = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off  + weight;
 				n_o_eff_combined = n_o_eff_combined + weight;
@@ -395,7 +395,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
 
 
-			if( gaminvR<0 && shatR<0 && flag_prodr_t_off[1]==1 ){
+			if( gaminvR<=0 && shatR<=0 && flag_prodr_t_off[1]==1 ){
 
 				n_o_eff_combined = n_o_eff_combined + weight;
 
@@ -515,7 +515,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	Float_t eff_or_3_off_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j /n_razor;
 	Float_t eff_or_4_off_2j = n_o_e_xe100_XE70_or_prodr_or3_off_2j /n_razor;
 	Float_t eff_or_5_off_2j = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j /n_razor;
-	Float_t eff_or_6_off_2j = n_o_eff_combined_2j/number_of_events;
+	Float_t eff_or_6_off_2j = n_o_eff_combined_2j/n_razor;
 
 
 
