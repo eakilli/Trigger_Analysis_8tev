@@ -7,3 +7,16 @@ c2=  -0.0754473
         Float_t off_c1 = -252;
         Float_t off_c2 = -0.08;
 
+NEW :
+
+
+prodr = 231.9
+c1 = -173.3
+c2 = 0 (fixed to 0)
+
+        Float_t off_prodr = 230;
+        Float_t off_c1 = -170;
+        Float_t off_c2 = 0;
+
+
+

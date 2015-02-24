@@ -8,6 +8,7 @@
 #include <TGraph.h>
 #include <TEfficiency>
 #include <vector>
+#include <TMath.h>
 
 //#include <TString.h>
 //#include <iostream>
@@ -25,6 +26,26 @@
 
 
 vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, Float_t off_prodr, Float_t off_c_1, Float_t off_c_2, TString file_directory , TString input_file_name_1, TString input_file_name_2, TString output_directory , TString output_file_name, Float_t cross_sect1, Float_t cross_sect2){
+
+
+	// To check the efficiencies and the uncertaintie :
+
+
+	TH1::SetDefaultSumw2();
+
+	TH1F * check_eff = new TH1F("check_eff","check eff", 1,0,1);
+	TH1F * check_all = new TH1F("check_all","check all", 1,0,1);
+
+
+	check_eff ->Sumw2();
+	check_all->Sumw2();
+
+
+/*	OR_1_h_eff_tr = (TEfficiency*) new TEfficiency("OR_1_h_eff_tr","Eff ",1, 0, 1);
+
+	OR_1_h_eff_tr->SetStatisticOption(1);
+	OR_1_h_eff_tr->SetUseWeightedEvents();
+*/
 
 
       	Float_t off_xe = 200;
@@ -132,6 +153,40 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 	Float_t n_o_eff_combined_2j = 0;
 
 
+
+	Float_t     err_n_o_e_xe100_XE70 = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_2J15_XE55 = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_XE70 = 0;
+	Float_t     err_n_o_e_prodr_2J15_XE55_or_prodr_XE70 = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_or3 = 0;
+
+	Float_t     err_n_o_e_xe100_XE70_off = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_XE70_off = 0;
+	Float_t     err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_or3_off = 0;
+	Float_t     err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 = 0;
+	Float_t     err_n_o_eff_combined = 0;
+
+	Float_t     err_n_o_e_xe100_XE70_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_XE70_2j = 0;
+	Float_t     err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_or3_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_off_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j = 0;
+	Float_t     err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = 0;
+	Float_t     err_n_o_e_xe100_XE70_or_prodr_or3_off_2j = 0;
+	Float_t     err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = 0;
+	Float_t     err_n_o_eff_combined_2j = 0;
+
+	Float_t     err_number_of_events = 0;
+	Float_t     err_n_razor = 0;
+
+
+
+
 	int flag_OR_1 = 0;
 	int flag_OR_2 = 0;
 	int flag_OR_3 = 0;
@@ -226,6 +281,8 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
         outputfile << " number of events tree 2 : " << number_of_events_2 << endl;
 
 
+	Float_t weight_sqr = 0;
+
 	efficiencies.resize(0);
 
  	// The tree loop, 2 trees
@@ -257,6 +314,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			number_of_events_cur = number_of_events_2;
 
 		}
+
+
+		weight_sqr = weight*weight;
 
 
 		currenttree->SetBranchAddress("shatR",&shatR);
@@ -326,6 +386,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
 			if(shatR>0 && gaminvR>0) {
 				n_razor = n_razor + weight;
+				err_n_razor = err_n_razor + weight_sqr;
 			}
 
 			if(shatR>0 && gaminvR>0 && value<prodr) {
@@ -342,7 +403,10 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 				if(b_2J15_XE55==1){
 					flag_prodr_t[0]=1;
 					n_o_e_prodr_2J15_XE55 = n_o_e_prodr_2J15_XE55 + weight;
-                              		if (flag_prod_off == 1 ) { flag_prodr_t_off[0]=1;  n_o_e_prodr_2J15_XE55_off =  n_o_e_prodr_2J15_XE55_off  + weight; }
+				//	err_n_o_e_prodr_2J15_XE55 = err_n_o_e_prodr_2J15_XE55 + weight_sqr;
+                              		if (flag_prod_off == 1 ) { flag_prodr_t_off[0]=1;  n_o_e_prodr_2J15_XE55_off =  n_o_e_prodr_2J15_XE55_off  + weight;
+					//	err_n_o_e_prodr_2J15_XE55_off = err_n_o_e_prodr_2J15_XE55_off + weight_sqr;
+					}
 				}
 
 
@@ -350,7 +414,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 				if(b_XE70==1){
 					flag_prodr_t[2]=1;
 					n_o_e_prodr_XE70 = n_o_e_prodr_XE70 + weight;
-                                     	if (flag_prod_off == 1 ) { flag_prodr_t_off[2]=1;  n_o_e_prodr_XE70_off = n_o_e_prodr_XE70_off  + weight; }
+				//	err_n_o_e_prodr_XE70 = err_n_o_e_prodr_XE70 + weight_sqr;
+                                     	if (flag_prod_off == 1 ) { flag_prodr_t_off[2]=1;  n_o_e_prodr_XE70_off = n_o_e_prodr_XE70_off  + weight;}
+					//	err_n_o_e_prodr_XE70_off = err_n_o_e_prodr_XE70_off + weight_sqr;
 
 				}
 			}
@@ -360,10 +426,14 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if(b_xe100_XE70==1){
 				flag_prodr_t[1]=1; //actually it is not a flag_prodr_t, only met
 				n_o_e_xe100_XE70 = n_o_e_xe100_XE70 + weight;
-                             	if (flag_xe_off == 1 ) { flag_prodr_t_off[1]=1; n_o_e_xe100_XE70_off = n_o_e_xe100_XE70_off  + weight; }
+                            	err_n_o_e_xe100_XE70 = err_n_o_e_xe100_XE70 + weight_sqr;
+				if (flag_xe_off == 1 ) { flag_prodr_t_off[1]=1; n_o_e_xe100_XE70_off = n_o_e_xe100_XE70_off  + weight;
+					err_n_o_e_xe100_XE70_off = err_n_o_e_xe100_XE70_off + weight_sqr; }
 				if (flag_prod_off ==1 ) { flag_off_raz_xe100_XE70_off = 1; }
-				if (shatR>0 && gaminvR>0){ n_o_e_xe100_XE70_2j = n_o_e_xe100_XE70_2j + weight;  }
-				if(flag_xe_off == 1 && shatR>0 && gaminvR >0){n_o_e_xe100_XE70_off_2j = n_o_e_xe100_XE70_off_2j +weight;}
+				if (shatR>0 && gaminvR>0){ n_o_e_xe100_XE70_2j = n_o_e_xe100_XE70_2j + weight; err_n_o_e_xe100_XE70_2j = err_n_o_e_xe100_XE70_2j + weight_sqr;  }
+				if(flag_xe_off == 1 && shatR>0 && gaminvR >0){n_o_e_xe100_XE70_off_2j = n_o_e_xe100_XE70_off_2j +weight;
+					 err_n_o_e_xe100_XE70_off_2j = err_n_o_e_xe100_XE70_off_2j + weight_sqr;
+				}
 
 			}
 
@@ -375,20 +445,25 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if(flag_prodr_t[0]==1 || flag_prodr_t[1]==1){
 				flag_OR_1 = 1;
 				n_o_e_xe100_XE70_or_prodr_2J15_XE55  = n_o_e_xe100_XE70_or_prodr_2J15_XE55 + weight;
-				if(shatR>0 && gaminvR>0) { n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j + weight;  }
+				err_n_o_e_xe100_XE70_or_prodr_2J15_XE55 = err_n_o_e_xe100_XE70_or_prodr_2J15_XE55 + weight_sqr;
+				if(shatR>0 && gaminvR>0) { n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j + weight;
+					err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j = err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j + weight_sqr;  }
 			}
 
 
 
 			// New offline but, treat OR of ProdR_2J15_XE55, xe100_XE70 as a single trigger and apply the offline cut on the 2D razor variables plane
-			if( flag_prodr_t_off[0] ==1 || flag_off_raz_xe100_XE70_off==1 ) {
+			if( flag_prodr_t_off[0]==1  || flag_off_raz_xe100_XE70_off==1 ) {
                                 flag_OR_1_off = 1;
                                 n_o_e_xe100_XE70_or_prodr_2J15_XE55_off = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off  + weight;
+				err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off = err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off + weight_sqr;
 				n_o_eff_combined = n_o_eff_combined + weight;
-
+				err_n_o_eff_combined = err_n_o_eff_combined + weight_sqr;
                 		if(shatR>0 && gaminvR>0) {
 					n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j = n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j + weight;
+					err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j = err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j + weight_sqr;
 					n_o_eff_combined_2j = n_o_eff_combined_2j + weight;
+					err_n_o_eff_combined_2j = err_n_o_eff_combined_2j + weight_sqr;
 				}
 
 		       }
@@ -398,6 +473,7 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if( gaminvR<=0 && shatR<=0 && flag_prodr_t_off[1]==1 ){
 
 				n_o_eff_combined = n_o_eff_combined + weight;
+				err_n_o_eff_combined = err_n_o_eff_combined + weight_sqr;
 
 			}
 
@@ -407,7 +483,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
    	                 if(flag_prodr_t_off[0] == 1 || flag_prodr_t_off[1]==1) {
                                 flag_OR_1_off = 1;
                                 n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55  + weight;
-				if(shatR>0 && gaminvR>0) {n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j + weight;}
+				err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 = err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55 + weight_sqr;
+				if(shatR>0 && gaminvR>0) {n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j + weight;
+					err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j = err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j + weight_sqr;}
                         }
 
 
@@ -416,7 +494,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if(flag_prodr_t[2]==1 || flag_prodr_t[1]==1){
 				flag_OR_2 = 1;
 				n_o_e_xe100_XE70_or_prodr_XE70 = n_o_e_xe100_XE70_or_prodr_XE70 + weight;
-				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_2j = n_o_e_xe100_XE70_or_prodr_XE70_2j +weight;}
+				err_n_o_e_xe100_XE70_or_prodr_XE70 = err_n_o_e_xe100_XE70_or_prodr_XE70 + weight_sqr;
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_2j = n_o_e_xe100_XE70_or_prodr_XE70_2j +weight;
+					err_n_o_e_xe100_XE70_or_prodr_XE70_2j = err_n_o_e_xe100_XE70_or_prodr_XE70_2j + weight_sqr;}
 			}
 
 
@@ -424,7 +504,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
                         if(flag_prodr_t_off[2]== 1 || flag_prodr_t_off[1]==1){
                                 flag_OR_2_off = 1;
                                 n_o_e_xe100_XE70_or_prodr_XE70_off = n_o_e_xe100_XE70_or_prodr_XE70_off  + weight;
-				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_off_2j = n_o_e_xe100_XE70_or_prodr_XE70_off_2j+weight;}
+				err_n_o_e_xe100_XE70_or_prodr_XE70_off = err_n_o_e_xe100_XE70_or_prodr_XE70_off + weight_sqr;
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_XE70_off_2j = n_o_e_xe100_XE70_or_prodr_XE70_off_2j+weight;
+					err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j = err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j+weight_sqr;}
                         }
 
 
@@ -434,14 +516,18 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if( flag_prodr_t[0]==1 || flag_prodr_t[2]==1){
 				flag_OR_3 = 1;
 				n_o_e_prodr_2J15_XE55_or_prodr_XE70 = n_o_e_prodr_2J15_XE55_or_prodr_XE70 + weight;
-				if(shatR>0 && gaminvR>0) {n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j + weight;}
+				err_n_o_e_prodr_2J15_XE55_or_prodr_XE70 = err_n_o_e_prodr_2J15_XE55_or_prodr_XE70 + weight_sqr;
+				if(shatR>0 && gaminvR>0) {n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j + weight;
+					err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j = err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j + weight_sqr;}
 			}
 
 
                         if(flag_prodr_t_off[0] == 1 || flag_prodr_t_off[2] == 1){
                                 flag_OR_3_off =1;
                                 n_o_e_prodr_2J15_XE55_or_prodr_XE70_off  = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off + weight;
-                 		if(shatR>0 && gaminvR>0){n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j + weight;}
+				err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off = err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off + weight_sqr;
+                 		if(shatR>0 && gaminvR>0){n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j + weight;
+					err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j = err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j + weight_sqr;}
 		     }
 
 
@@ -450,7 +536,9 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 			if( flag_OR_3 ==1 || flag_prodr_t[1]==1){
 				flag_OR_4 = 1;
 				n_o_e_xe100_XE70_or_prodr_or3 = n_o_e_xe100_XE70_or_prodr_or3 + weight;
-				if(shatR>0 && gaminvR >0) {n_o_e_xe100_XE70_or_prodr_or3_2j = n_o_e_xe100_XE70_or_prodr_or3_2j +weight;}
+				err_n_o_e_xe100_XE70_or_prodr_or3 = err_n_o_e_xe100_XE70_or_prodr_or3 + weight_sqr;
+				if(shatR>0 && gaminvR >0) {n_o_e_xe100_XE70_or_prodr_or3_2j = n_o_e_xe100_XE70_or_prodr_or3_2j +weight;
+					err_n_o_e_xe100_XE70_or_prodr_or3_2j = err_n_o_e_xe100_XE70_or_prodr_or3_2j +weight_sqr;}
 			}
 
 
@@ -458,11 +546,23 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
                         if(flag_OR_3_off == 1 || flag_prodr_t_off[1]==1){
 
                                 n_o_e_xe100_XE70_or_prodr_or3_off = n_o_e_xe100_XE70_or_prodr_or3_off  + weight;
-				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_or3_off_2j = n_o_e_xe100_XE70_or_prodr_or3_off_2j + weight;}
+				err_n_o_e_xe100_XE70_or_prodr_or3_off = err_n_o_e_xe100_XE70_or_prodr_or3_off + weight_sqr;
+				if(shatR>0 && gaminvR>0){n_o_e_xe100_XE70_or_prodr_or3_off_2j = n_o_e_xe100_XE70_or_prodr_or3_off_2j + weight;
+					err_n_o_e_xe100_XE70_or_prodr_or3_off_2j = err_n_o_e_xe100_XE70_or_prodr_or3_off_2j + weight_sqr;}
                         }
 
 
 			number_of_events = number_of_events + weight;
+			err_number_of_events = err_number_of_events + weight_sqr;
+
+
+			check_all->Fill(0,weight);
+			if(flag_OR_1 ==1) check_eff->Fill(0,weight);
+
+
+		//	OR_1_h_eff_tr->FillWeighted(flag_OR_1 ==1,  weight, 0);
+
+
 
 		} //end event loop
 
@@ -553,6 +653,113 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
 
 
 
+	// Errors
+
+
+	Float_t A = 1/pow(number_of_events,2) ;
+	Float_t B = pow(err_number_of_events,2) / pow(number_of_events,4);
+
+	Float_t A_2j =  1/pow(n_razor,2) ;
+	Float_t B_2j = pow(err_n_razor,2) / pow(n_razor,4);
+
+
+	err_n_o_e_xe100_XE70 = sqrt(err_n_o_e_xe100_XE70);
+	err_n_o_e_xe100_XE70_or_prodr_2J15_XE55 = sqrt(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55);
+
+	err_n_o_e_xe100_XE70_or_prodr_XE70 = sqrt(err_n_o_e_xe100_XE70_or_prodr_XE70);
+	err_n_o_e_prodr_2J15_XE55_or_prodr_XE70  = sqrt(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70);
+	err_n_o_e_xe100_XE70_or_prodr_or3  = sqrt(err_n_o_e_xe100_XE70_or_prodr_or3);
+
+	err_n_o_e_xe100_XE70_off  = sqrt(err_n_o_e_xe100_XE70_off);
+	err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off  = sqrt(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off);
+	err_n_o_e_xe100_XE70_or_prodr_XE70_off  = sqrt(err_n_o_e_xe100_XE70_or_prodr_XE70_off);
+	err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off  = sqrt(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off);
+	err_n_o_e_xe100_XE70_or_prodr_or3_off  = sqrt(err_n_o_e_xe100_XE70_or_prodr_or3_off);
+	err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55  = sqrt(err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55);
+	err_n_o_eff_combined  = sqrt(err_n_o_eff_combined);
+
+	err_n_o_e_xe100_XE70_2j  = sqrt(err_n_o_e_xe100_XE70_2j);
+	err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j  = sqrt(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j);
+	err_n_o_e_xe100_XE70_or_prodr_XE70_2j  = sqrt(err_n_o_e_xe100_XE70_or_prodr_XE70_2j);
+	err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j  = sqrt(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j);
+	err_n_o_e_xe100_XE70_or_prodr_or3_2j  = sqrt(err_n_o_e_xe100_XE70_or_prodr_or3_2j);
+	err_n_o_e_xe100_XE70_off_2j  = sqrt(err_n_o_e_xe100_XE70_off_2j);
+	err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j  = sqrt(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j);
+	err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j   = sqrt(err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j);
+	err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j   = sqrt(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j);
+	err_n_o_e_xe100_XE70_or_prodr_or3_off_2j   = sqrt(err_n_o_e_xe100_XE70_or_prodr_or3_off_2j);
+	err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j   = sqrt(err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j);
+	err_n_o_eff_combined_2j  = sqrt(err_n_o_eff_combined_2j);
+
+	err_number_of_events  = sqrt(err_number_of_events);
+	err_n_razor  = sqrt(err_n_razor);
+
+
+
+	Float_t err_eff_xe = sqrt( 1/pow(number_of_events,2)*pow( err_n_o_e_xe100_XE70,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_xe100_XE70,2) );
+
+	Float_t err_eff_or_1 = sqrt(  1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55,2) + pow(err_number_of_events,2) / pow(number_of_events,4) * pow( n_o_e_xe100_XE70_or_prodr_2J15_XE55,2) );
+
+	Float_t err_eff_or_2 = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_XE70,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_xe100_XE70_or_prodr_XE70,2) );
+	Float_t err_eff_or_3 = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_prodr_2J15_XE55_or_prodr_XE70,2) );
+	Float_t err_eff_or_4 = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_or3,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_xe100_XE70_or_prodr_or3,2));
+
+
+	Float_t err_eff_xe_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_off,2)+ pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_xe100_XE70_off,2));
+	Float_t err_eff_or_1_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off,2)  + pow(err_number_of_events,2) / pow(number_of_events,4)*pow(n_o_e_xe100_XE70_or_prodr_2J15_XE55_off,2) );
+	Float_t err_eff_or_2_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_XE70_off,2)  + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_xe100_XE70_or_prodr_XE70_off,2));
+	Float_t err_eff_or_3_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off,2)  + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_prodr_2J15_XE55_or_prodr_XE70_off,2));
+	Float_t err_eff_or_4_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_xe100_XE70_or_prodr_or3_off,2)  + pow(err_number_of_events,2) / pow(number_of_events,4)*pow(n_o_e_xe100_XE70_or_prodr_or3_off,2) );
+	Float_t err_eff_or_5_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55,2) );
+	Float_t err_eff_or_6_off = sqrt(1/pow(number_of_events,2)*pow(err_n_o_eff_combined,2) + pow(err_number_of_events,2) / pow(number_of_events,4)*pow( n_o_eff_combined,2));
+
+	Float_t err_eff_xe_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_2j,2)   + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_2j,2));
+	Float_t err_eff_or_1_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j,2)  + pow(err_n_razor,2) / pow(n_razor,4)*pow(n_o_e_xe100_XE70_or_prodr_2J15_XE55_2j,2) );
+	Float_t err_eff_or_2_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_XE70_2j,2)   + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_or_prodr_XE70_2j,2) );
+	Float_t err_eff_or_3_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j,2)  + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_prodr_2J15_XE55_or_prodr_XE70_2j,2) );
+	Float_t err_eff_or_4_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_or3_2j,2) + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_or_prodr_or3_2j,2));
+	Float_t err_eff_xe_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_off_2j,2)   + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_off_2j,2)  );
+	Float_t err_eff_or_1_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j,2)  + pow(err_n_razor,2) / pow(n_razor,4)*pow(n_o_e_xe100_XE70_or_prodr_2J15_XE55_off_2j,2) );
+	Float_t err_eff_or_2_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_XE70_off_2j,2)  + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_or_prodr_XE70_off_2j,2) );
+	Float_t err_eff_or_3_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j,2)  + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_prodr_2J15_XE55_or_prodr_XE70_off_2j,2));
+	Float_t err_eff_or_4_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_xe100_XE70_or_prodr_or3_off_2j,2) + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_xe100_XE70_or_prodr_or3_off_2j,2));
+	Float_t err_eff_or_5_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j,2) + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_e_off_xe100_XE70_or_off_prodr_2J15_XE55_2j,2) );
+	Float_t err_eff_or_6_off_2j = sqrt(1/pow(n_razor,2)*pow(err_n_o_eff_combined_2j,2) + pow(err_n_razor,2) / pow(n_razor,4)*pow( n_o_eff_combined_2j,2) );
+
+
+
+	efficiencies.push_back(err_eff_xe);
+	efficiencies.push_back(err_eff_or_1);
+	efficiencies.push_back(err_eff_or_2);
+	efficiencies.push_back(err_eff_or_3);
+	efficiencies.push_back(err_eff_or_4);
+
+
+	efficiencies.push_back(err_eff_xe_off);
+	efficiencies.push_back(err_eff_or_1_off);
+    	efficiencies.push_back(err_eff_or_2_off);
+    	efficiencies.push_back(err_eff_or_3_off);
+    	efficiencies.push_back(err_eff_or_4_off);
+    	efficiencies.push_back(err_eff_or_5_off);
+    	efficiencies.push_back(err_eff_or_6_off);
+
+	efficiencies.push_back(err_eff_xe_2j);
+	efficiencies.push_back(err_eff_or_1_2j);
+   	efficiencies.push_back(err_eff_or_2_2j);
+    	efficiencies.push_back(err_eff_or_3_2j);
+	efficiencies.push_back(err_eff_or_4_2j);
+	efficiencies.push_back(err_eff_xe_off_2j);
+	efficiencies.push_back(err_eff_or_1_off_2j);
+	efficiencies.push_back(err_eff_or_2_off_2j);
+	efficiencies.push_back(err_eff_or_3_off_2j);
+	efficiencies.push_back(err_eff_or_4_off_2j);
+	efficiencies.push_back(err_eff_or_5_off_2j);
+	efficiencies.push_back(err_eff_or_6_off_2j);
+
+
+
+
+
 	setstyle();
 
 
@@ -594,6 +801,48 @@ vector<Float_t> trigger_turn_on_comb_off(TString c_prodr, Float_t prodr, Float_t
         endl;
 
 	cout << " Offline efficiencies : Done! :) " << endl;
+
+
+	Float_t all_n = check_all->GetBinContent(1);
+	Float_t passed_n = check_eff->GetBinContent(1);
+	Float_t err_all_n = check_all->GetBinError(1);
+	Float_t err_passed_n =  check_eff->GetBinError(1);
+
+
+	cout << "All : " << all_n << "," << err_all_n << endl;
+	cout << "Passed : " << passed_n << "," << err_passed_n << endl;
+
+
+
+	TH1F *eff_h = new TH1F("eff_h","ratio",1,0,1);
+
+	cout << "Efficiency by counting : " << passed_n/all_n   << "," << sqrt( pow(1/all_n ,2)*pow(err_passed_n ,2) + pow(passed_n ,2) * pow(1/all_n,4) * pow(err_all_n,2)  ) << endl;
+
+
+	eff_h->Sumw2();
+	eff_h->Divide(check_eff,check_all);
+
+	Float_t eff_n = eff_h->GetBinContent(1);
+	Float_t err_eff_n = eff_h->GetBinError(1);
+
+
+	cout << "Efficiency : " << eff_n << "," << err_eff_n << endl;
+
+
+	cout << err_eff_or_1 << endl;
+
+	cout << err_n_o_e_xe100_XE70_or_prodr_2J15_XE55 << endl;
+	cout << err_number_of_events << endl;
+
+	check_eff->Delete();
+	check_all->Delete();
+	eff_h->Delete();
+
+
+
+//	cout << "Efficiency obj : " << OR_1_h_eff_tr->GetEfficiency(1) << ", Up:" << OR_1_h_eff_tr->GetEfficiencyErrorUp(1) << ", Down:" << OR_1_h_eff_tr->GetEfficiencyErrorLow(1) << endl;
+
+
 
 	return efficiencies;
 

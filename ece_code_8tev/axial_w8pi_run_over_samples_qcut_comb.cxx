@@ -69,6 +69,36 @@ void parseDir(TString dirname){
 	ofstream  file_efficiencies_eff_or_6_off_2j(choose_txt_directory+"/axial_w8pi_file_efficiencies_eff_or_6_off_2j.txt");
 
 
+	ofstream  	    file_err_efficiencies_eff_xe(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_xe.txt");
+	ofstream  	  file_err_efficiencies_eff_or_1(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_1.txt");
+	ofstream  	  file_err_efficiencies_eff_or_2(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_2.txt");
+	ofstream  	  file_err_efficiencies_eff_or_3(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_3.txt");
+	ofstream  	  file_err_efficiencies_eff_or_4(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_4.txt");
+	ofstream  	file_err_efficiencies_eff_xe_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_xe_off.txt");
+	ofstream  file_err_efficiencies_eff_or_1_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_1_off.txt");
+	ofstream  file_err_efficiencies_eff_or_2_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_2_off.txt");
+	ofstream  file_err_efficiencies_eff_or_3_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_3_off.txt");
+	ofstream  file_err_efficiencies_eff_or_4_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_4_off.txt");
+	ofstream  file_err_efficiencies_eff_or_5_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_5_off.txt");
+	ofstream  file_err_efficiencies_eff_or_6_off(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_6_off.txt");
+
+
+	ofstream  	    file_err_efficiencies_eff_xe_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_xe_2j.txt");
+	ofstream  	  file_err_efficiencies_eff_or_1_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_1_2j.txt");
+	ofstream  	  file_err_efficiencies_eff_or_2_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_2_2j.txt");
+	ofstream  	  file_err_efficiencies_eff_or_3_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_3_2j.txt");
+	ofstream  	  file_err_efficiencies_eff_or_4_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_4_2j.txt");
+	ofstream  	file_err_efficiencies_eff_xe_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_xe_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_1_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_1_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_2_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_2_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_3_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_3_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_4_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_4_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_5_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_5_off_2j.txt");
+	ofstream  file_err_efficiencies_eff_or_6_off_2j(choose_txt_directory+"/axial_w8pi_file_err_efficiencies_eff_or_6_off_2j.txt");
+
+
+
+
 	if (files) {
 
 		cout << "Found files." << endl;
@@ -165,7 +195,7 @@ void parseDir(TString dirname){
 
 				cout << "Attempting to tamper with files " << input_file_name_1 << "," <<  input_file_name_2  << endl ;
 
-
+/*
 				// RAZOR VARIABLES AND TRIGGER OVERLAPS
 
 				// Output file razor variables, trigger overlap
@@ -175,7 +205,7 @@ void parseDir(TString dirname){
 				output_file_name_razor = temp_input_file_name_razor.Remove(0,12);
 //				razor_trigger_comb("200",200,85,0.048,  file_directory , input_file_name_1, input_file_name_2, output_directory, output_file_name_razor,cross_sect1,cross_sect2);
                             	razor_trigger_comb("170",170,200,0.0,  file_directory , input_file_name_1, input_file_name_2 , output_directory, output_file_name_razor,cross_sect1,cross_sect2);
-
+*/
 
 
 				// EFFICIENCY
@@ -189,7 +219,7 @@ void parseDir(TString dirname){
 
 				efficiency_all.resize(0);
 				efficiency_170_off.resize(0);
-				trigger_turn_on_comb("170",170,200,0.0,off_prodr_string ,off_prodr,off_c1, off_c2, file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
+//				trigger_turn_on_comb("170",170,200,0.0,off_prodr_string ,off_prodr,off_c1, off_c2, file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
                                 efficiency_170_off = trigger_turn_on_comb_off("170",170,200,0.0, off_prodr,off_c1, off_c2, file_directory , input_file_name_1, input_file_name_2 ,output_directory, output_file_name_efficiency,cross_sect1,cross_sect2);
 
 
@@ -235,6 +265,33 @@ void parseDir(TString dirname){
 				 file_efficiencies_eff_or_5_off_2j << efficiency_all[22] << endl;
 				 file_efficiencies_eff_or_6_off_2j << efficiency_all[23] << endl;
 
+	 	    file_err_efficiencies_eff_xe << efficiency_all[24] << endl;
+	 	  file_err_efficiencies_eff_or_1 << efficiency_all[25] << endl;
+	 	  file_err_efficiencies_eff_or_2 << efficiency_all[26] << endl;
+	 	  file_err_efficiencies_eff_or_3 << efficiency_all[27] << endl;
+	 	  file_err_efficiencies_eff_or_4 << efficiency_all[28] << endl;
+	 	file_err_efficiencies_eff_xe_off << efficiency_all[29] << endl;
+	 file_err_efficiencies_eff_or_1_off << efficiency_all[30] << endl;
+	 file_err_efficiencies_eff_or_2_off << efficiency_all[31] << endl;
+	 file_err_efficiencies_eff_or_3_off << efficiency_all[32] << endl;
+	 file_err_efficiencies_eff_or_4_off << efficiency_all[33] << endl;
+	 file_err_efficiencies_eff_or_5_off << efficiency_all[34] << endl;
+	 file_err_efficiencies_eff_or_6_off << efficiency_all[35] << endl;
+	
+	
+	 	    file_err_efficiencies_eff_xe_2j << efficiency_all[36] << endl;
+	 	  file_err_efficiencies_eff_or_1_2j << efficiency_all[37] << endl;
+	 	  file_err_efficiencies_eff_or_2_2j << efficiency_all[38] << endl;
+	 	  file_err_efficiencies_eff_or_3_2j << efficiency_all[39] << endl;
+	 	  file_err_efficiencies_eff_or_4_2j << efficiency_all[40] << endl;
+	 	file_err_efficiencies_eff_xe_off_2j << efficiency_all[41] << endl;
+	 file_err_efficiencies_eff_or_1_off_2j << efficiency_all[42] << endl;
+	 file_err_efficiencies_eff_or_2_off_2j << efficiency_all[43] << endl;
+	 file_err_efficiencies_eff_or_3_off_2j << efficiency_all[44] << endl;
+	 file_err_efficiencies_eff_or_4_off_2j << efficiency_all[45] << endl;
+	 file_err_efficiencies_eff_or_5_off_2j << efficiency_all[46] << endl;
+	 file_err_efficiencies_eff_or_6_off_2j << efficiency_all[47] << endl;
+
 
 
 
@@ -274,6 +331,34 @@ void parseDir(TString dirname){
 	 file_efficiencies_eff_or_4_off_2j.close();
 	 file_efficiencies_eff_or_5_off_2j.close();
 	 file_efficiencies_eff_or_6_off_2j.close();
+
+
+
+	 	    file_err_efficiencies_eff_xe.close();
+	 	  file_err_efficiencies_eff_or_1.close();
+	 	  file_err_efficiencies_eff_or_2.close();
+	 	  file_err_efficiencies_eff_or_3.close();
+	 	  file_err_efficiencies_eff_or_4.close();
+	 	file_err_efficiencies_eff_xe_off.close();
+	 file_err_efficiencies_eff_or_1_off.close();
+	 file_err_efficiencies_eff_or_2_off.close();
+	 file_err_efficiencies_eff_or_3_off.close();
+	 file_err_efficiencies_eff_or_4_off.close();
+	 file_err_efficiencies_eff_or_5_off.close();
+	 file_err_efficiencies_eff_or_6_off.close();
+
+	 	    file_err_efficiencies_eff_xe_2j.close();
+	 	  file_err_efficiencies_eff_or_1_2j.close();
+	 	  file_err_efficiencies_eff_or_2_2j.close();
+	 	  file_err_efficiencies_eff_or_3_2j.close();
+	 	  file_err_efficiencies_eff_or_4_2j.close();
+	 	file_err_efficiencies_eff_xe_off_2j.close();
+	 file_err_efficiencies_eff_or_1_off_2j.close();
+	 file_err_efficiencies_eff_or_2_off_2j.close();
+	 file_err_efficiencies_eff_or_3_off_2j.close();
+	 file_err_efficiencies_eff_or_4_off_2j.close();
+	 file_err_efficiencies_eff_or_5_off_2j.close();
+	 file_err_efficiencies_eff_or_6_off_2j.close();
 
 
 
